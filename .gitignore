@@ -132,3 +132,4 @@ dmypy.json
 #reports
 allure-results/*
 logs/*
+trace.zip

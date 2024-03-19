@@ -30,6 +30,7 @@ class TestRunBuild:
     @allure.title('Проверка запуска билда')
     @allure.description('Проверяется запуск и успешная работа билда')
     @pytest.mark.build_run
+    @pytest.mark.api
     def test_run_build_by_all_roles(self, project_data, build_conf_data, build_run_data, super_admin, user_create,
                                     role):
         with allure.step('Подготовка данных для создания проекта, билд конфигурации и запуска билда'):

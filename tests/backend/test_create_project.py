@@ -23,6 +23,7 @@ class TestProjectCreate:
     @allure.title('Проверка создания проекта')
     @allure.description('Проверяется создание проекта и пополнение в общем списке проектов')
     @pytest.mark.projects
+    @pytest.mark.api
     def test_positive_creating_project_by_roles(self, project_data, user_create, role):
         with allure.step('Подготовка данных для создания проекта'):
             project_data_1 = project_data()
@@ -127,6 +128,7 @@ class TestProjectCreate:
         with allure.step('Подготовка данных для создания проекта'):
             project_data_1 = dict(ProjectData.create_project_data())
             project_data_1[attribute] = value
+
 
         with (allure.step(f'Отправка запроса на создание проекта с пустым {attribute}')):
             created_project_response = super_admin.api_manager.project_api.create_project(

@@ -64,7 +64,7 @@ jobs:
     - name: Run Setup Test
       run: |
         playwright install
-        pytest -v tests/frontend/test_set_up.py
+        pytest -v tests/frontend/test_set_up.py --alluredir=results
 
     - name: Retrieve Super User Token
       run: |

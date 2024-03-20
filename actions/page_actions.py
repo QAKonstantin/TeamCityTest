@@ -45,6 +45,12 @@ class PageAction:
         with allure.step(f"Клик по элементу: {selector}"):
             self.page.click(selector)
 
+    def activate_inactive_checkbox(self, selector):
+        with allure.step(f"Активация чекбокса {selector}"):
+            if not self.page.is_checked(selector):
+                self.click_button(selector)
+                assert self.page.is_checked(selector), f"Чекбокс {selector} остался неактивен"
+
     def is_element_present(self, selector):
         with allure.step(f"Проверка видимости элемента: {selector}"):
             expect(self.page.locator(selector)).to_be_visible()
@@ -69,13 +75,13 @@ class PageAction:
         with allure.step(f"Ввод текста 'FILTERED' в элемент: {selector}"):
             self.page.fill(selector, text)
 
-    def wait_for_selector(self, selector):
+    def wait_for_selector(self, selector, timeout=20000):
         with allure.step(f"Ожидаем появления элемента: {selector}"):
-            self.page.wait_for_selector(selector, state='visible')
+            self.page.wait_for_selector(selector, state="attached", timeout=timeout)
 
-    def wait_for_disappear_selector(self, selector):
+    def wait_for_disappear_selector(self, selector, timeout=20000):
         with allure.step(f"Ожидаем исчезновения элемента: {selector}"):
-            self.page.wait_for_selector(selector, state='detached')
+            self.page.wait_for_selector(selector, state='detached', timeout=timeout)
 
     def assert_text_present_on_page(self, text):
         with allure.step(f"Проверка наличия текста '{text}' на странице"):

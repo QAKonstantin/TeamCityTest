@@ -14,7 +14,7 @@ from utils.data_generator import DataGenerator
 
 
 @pytest.fixture
-def browser(request):
+def browser():
     playwright, browser, context, page = BrowserSetup.setup()
     yield page
     BrowserSetup.teardown(context, browser, playwright)

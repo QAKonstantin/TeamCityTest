@@ -64,7 +64,7 @@ jobs:
       - name: Run Setup Test
         run: |
           playwright install
-          pytest -v tests/frontend/test_set_up.py
+          pytest -v tests/frontend/test_set_up.py --alluredir=results
 
       - name: Retrieve Super User Token
         run: |
@@ -75,7 +75,7 @@ jobs:
                 echo "Token found in logs, extracting..."
                 token=$(docker logs teamcity-server-instance 2>&1 | grep -oP 'Super user authentication token: \K[0-9]+')
                 echo "Super user token: $token"
-                echo "SUPER_USER_TOKEN=$token >> $GITHUB_ENV
+                echo "SUPER_USER_TOKEN=$token" >> $GITHUB_ENV
                 break
             else
               echo "Token not found, waiting..."

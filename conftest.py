@@ -13,9 +13,9 @@ from utils.browser_setup import BrowserSetup
 from utils.data_generator import DataGenerator
 
 
-@pytest.fixture(params=BROWSERS)
+@pytest.fixture
 def browser(request):
-    playwright, browser, context, page = BrowserSetup.setup(browser_type=request.param)
+    playwright, browser, context, page = BrowserSetup.setup()
     yield page
     BrowserSetup.teardown(context, browser, playwright)
 

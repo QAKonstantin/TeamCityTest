@@ -69,7 +69,7 @@ jobs:
       - name: Retrieve Super User Token
         run: |
           timeout=180
-          while [ $timeout -gt 0]; do
+          while [ $timeout -gt 0 ]; do
             if docker logs teamcity-server-instance 2>&1 | grep -q 'Super user authentication token';
               then
                 echo "Token found in logs, extracting..."

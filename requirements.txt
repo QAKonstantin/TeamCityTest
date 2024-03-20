@@ -1,9 +1,0 @@
-pytest==8.0.0
-requests==2.31.0
-Faker==23.2.1
-python-dotenv==1.0.1
-pydantic==2.6.1
-pytest-assume==2.4.3
-pytest-xdist==3.5.0
-allure-pytest==2.13.2
-playwright==1.41.2

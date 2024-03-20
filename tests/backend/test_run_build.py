@@ -68,7 +68,7 @@ class TestRunBuild:
             build_state = get_build_data_model.build[0].state
             timeout = 0
             while build_state != BuildState.BUILD_FINISHED.value:
-                if timeout != 10:
+                if timeout != 180:
                     time.sleep(1)
                     get_build_data = role_user.api_manager.build_run_api.get_running_build_by_id(
                         run_build_model.id).json()

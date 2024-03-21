@@ -1,4 +1,5 @@
 import allure
+
 from pages.setup_page import SetupPage
 
 

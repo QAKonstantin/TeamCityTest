@@ -1,6 +1,5 @@
 import allure
 
-from pages.auth_page import AuthLoginBySuperAdmin
 from pages.setup_page import SetupPage
 
 

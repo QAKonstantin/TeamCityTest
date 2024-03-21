@@ -10,9 +10,9 @@ class PageAction:
         with allure.step(f"Переход на URL: {url}"):
             self.page.goto(url)
 
-    def check_url(self, expected_url: str):
+    def check_url(self, expected_url: str, timeout=10000):
         with allure.step(f"Проверка URL: ожидаемый URL - {expected_url}"):
-            expect(self.page).to_have_url(expected_url)
+            expect(self.page).to_have_url(expected_url, timeout=timeout)
 
     def check_open_in_new_tab(self, expected_url: str):
         with allure.step(f"Проверка, что ссылка открылась в новой вкладке"):

@@ -99,6 +99,7 @@ class SetupPage(BasePage):
         self.actions.check_url(self.setup_user.page_url)
         self.setup_user.fill_user_details(username, password)
         self.setup_user.create_user()
-        self.actions.wait_for_url_changed(self.setup_user.page_url)
-
+        self.actions.wait_for_page_load()
+        self.page_url = "/favorite/projects"
+        self.actions.check_url(self.page_url, timeout=60000)
         self.agent_page.authorize_agent()

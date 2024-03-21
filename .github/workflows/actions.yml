@@ -89,6 +89,16 @@ jobs:
           fi
         shell: /usr/bin/bash -e {0}
 
+      - name: Start Selenoid server
+        uses: n-ton4/selenoid-github-action@master
+        id: start-selenoid
+        continue-on-error: false
+        with:
+          version: 1.10.1
+          args: -limit 10
+          browsers: chrome
+          last-version: 1
+
       - name: Run Tests
         run: |
           pytest -v -m additional --alluredir=results --ignore=tests/frontend/test_set_up.py

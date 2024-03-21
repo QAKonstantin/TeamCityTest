@@ -1,4 +1,4 @@
-BASE_URL = "http://localhost:4444/wd/hub"
+BASE_URL = "http://localhost:8111"
 JETBRAINS_URL = "https://www.jetbrains.com"
 
 # Ссылки для перехода по разделам проекта

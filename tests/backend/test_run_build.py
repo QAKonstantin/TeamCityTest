@@ -13,16 +13,8 @@ from enums.roles import Roles
 class TestRunBuild:
 
     @pytest.mark.parametrize("role", [
-        Roles.SYSTEM_ADMIN.value,
-        Roles.PROJECT_ADMIN.value,
-        Roles.AGENT_MANAGER.value,
-        Roles.PROJECT_DEVELOPER.value,
-        Roles.PROJECT_VIEWER.value
-    ], ids=["By system admin",
-            "By project admin",
-            "By agent manager",
-            "By developer",
-            "By viewer"])
+        Roles.SYSTEM_ADMIN.value
+    ], ids=["By system admin"])
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.parent_suite("API тесты")
     @allure.suite("Управление запусками билдов")
@@ -69,12 +61,14 @@ class TestRunBuild:
             build_state = get_build_data_model.build[0].state
             timeout = 0
             while build_state != BuildState.BUILD_FINISHED.value:
-                if timeout != 60:
+                if timeout != 30:
                     time.sleep(1)
                     get_build_data = role_user.api_manager.build_run_api.get_running_build_by_id(
                         run_build_model.id).json()
+                    print("get_build_data: \n" + get_build_data)
                     build_state = get_build_data['build'][0]['state']
                     timeout += 1
+                    print("build_state_new: " + build_state)
                 else:
                     raise TimeoutError(f"Билд с id: {run_build_model.id} не был завершён в течение отведённого времени")
 

@@ -100,4 +100,5 @@ class SetupPage(BasePage):
         self.setup_user.fill_user_details(username, password)
         self.setup_user.create_user()
         self.actions.wait_for_url_changed(self.setup_user.page_url)
+
         self.agent_page.authorize_agent()

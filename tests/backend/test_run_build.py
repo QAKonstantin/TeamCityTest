@@ -65,10 +65,10 @@ class TestRunBuild:
                     time.sleep(1)
                     get_build_data = role_user.api_manager.build_run_api.get_running_build_by_id(
                         run_build_model.id).json()
-                    print("get_build_data: \n" + get_build_data)
+                    print(f"get_build_data: \n + {get_build_data}")
                     build_state = get_build_data['build'][0]['state']
                     timeout += 1
-                    print("build_state_new: " + build_state)
+                    print(f"build_state_new:  {build_state}")
                 else:
                     raise TimeoutError(f"Билд с id: {run_build_model.id} не был завершён в течение отведённого времени")
 

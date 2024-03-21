@@ -28,7 +28,7 @@ class RunBuildPage(BasePage):
         last_build_status = BuildStatus.BUILD_UNKNOWN.value
         timeout = 0
         while last_build_status != expected_status:
-            if timeout != 180:
+            if timeout != 60:
                 time.sleep(1)
                 last_build_status = self.overview.get_all_running_builds().first.inner_text().upper()
                 timeout += 1

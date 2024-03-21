@@ -61,6 +61,16 @@ jobs:
           sudo apt-get install -y python3.10 python3-pip
           pip install -r requirements.txt
 
+      - name: Start Selenoid server
+        uses: n-ton4/selenoid-github-action@master
+        id: start-selenoid
+        continue-on-error: false
+        with:
+          version: 1.10.1
+          args: -limit 10
+          browsers: chrome
+          last-version: 1
+
       - name: Run Setup Test
         run: |
           playwright install
@@ -88,16 +98,6 @@ jobs:
               echo "Failed to retrieve super user token within the timeout period."
           fi
         shell: /usr/bin/bash -e {0}
-
-      - name: Start Selenoid server
-        uses: n-ton4/selenoid-github-action@master
-        id: start-selenoid
-        continue-on-error: false
-        with:
-          version: 1.10.1
-          args: -limit 10
-          browsers: chrome
-          last-version: 1
 
       - name: Run Tests
         run: |

@@ -1,5 +1,6 @@
 import allure
 
+from enums.hosts import BASE_URL
 from pages.setup_page import SetupPage
 
 
@@ -11,5 +12,6 @@ from pages.setup_page import SetupPage
     "создание пользователя с ролью Администратор")
 def test_setup(browser):
     with allure.step("Сетап"):
+        print(BASE_URL)
         setup_page = SetupPage(browser)
         setup_page.setup()

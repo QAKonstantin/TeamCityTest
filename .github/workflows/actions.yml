@@ -61,15 +61,15 @@ jobs:
           sudo apt-get install -y python3.10 python3-pip
           pip install -r requirements.txt
 
-      - name: Start Selenoid server
-        uses: n-ton4/selenoid-github-action@master
-        id: start-selenoid
-        continue-on-error: false
+      - name: Start Selenoid
+        uses: Xotabu4/selenoid-github-action@v2
         with:
-          version: 1.10.1
-          args: -limit 10
-          browsers: chrome
-          last-versions: 1
+          selenoid-start-arguments: |
+            --args "-timeout 60s"
+
+      - name: Is selenoid started?
+        run: curl http://localhost:4444/status
+
 
       - name: Run Setup Test
         run: |

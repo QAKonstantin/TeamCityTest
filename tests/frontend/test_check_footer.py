@@ -17,7 +17,7 @@ from pages.auth_page import AuthLoginForm
 @allure.suite("Проверка футера")
 @allure.sub_suite("Футер")
 @allure.title("Авторизация под разными ролями и проверка ссылок в футере")
-@pytest.mark.ui
+# @pytest.mark.ui
 @pytest.mark.footer
 def test_e2e_check_footer_by_roles(browser, user_create, role):
     with allure.step(f'Создание пользователя с ролью {role}'):

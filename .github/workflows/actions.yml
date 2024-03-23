@@ -119,8 +119,7 @@ jobs:
       - name: Run Tests
         run: |
           pytest -v -m additional --alluredir=${{ github.workspace }}/results --ignore=tests/frontend/test_set_up.py
-        with:
-
+#        with:
 #      - name: Upload Artifact
 #        uses: actions/upload-artifact@v4
 #          with:

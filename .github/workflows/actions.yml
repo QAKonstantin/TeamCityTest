@@ -75,6 +75,7 @@ jobs:
         run: |
           playwright install
           pytest -v tests/frontend/test_set_up.py
+          playwright show-trace trace.zip
 
       - name: Retrieve Super User Token
         run: |

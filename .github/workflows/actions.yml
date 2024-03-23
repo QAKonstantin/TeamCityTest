@@ -69,17 +69,17 @@ jobs:
           sudo apt-get install -y python3.10 python3-pip
           pip install -r requirements.txt
 
-            - name: Run Selenoid Server
-              run: |
-                docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 8111:8111 aerokube/selenoid:latest
-                echo "Waiting for Selenoid server to start..."
-                sleep 10
-                echo "Docker Status:"
-                docker ps -a
-                echo "Selenoid Server Logs:"
-                docker logs selenoid
-                chmod +x cm
-                ./cm selenoid start
+      - name: Run Selenoid Server
+        run: |
+          docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 8111:8111 aerokube/selenoid:latest
+          echo "Waiting for Selenoid server to start..."
+          sleep 10
+          echo "Docker Status:"
+          docker ps -a
+          echo "Selenoid Server Logs:"
+          docker logs selenoid
+          chmod +x cm
+          ./cm selenoid start
 
 
       #      - name: Setup Test for Selenoid server

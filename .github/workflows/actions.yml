@@ -126,22 +126,25 @@ jobs:
           name: Test Artifacts
           path: ~/download/
 
-  Artifacts:
-    runs-on: ubuntu-latest
-    steps:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
           name: Test Artifacts
-          run: ls -R
+      - name: Test artifacts download
+        run: ls -R
 
-      - name: Generate and run Allure Report
-        run: |
-          docker run -d -p 5050:5050 -v ${{ github.workspace }}/results:/allure-result frankescobar/allure-docker-service
-
-          echo "Docker Status:"
-          docker ps -a
-          echo "TeamCity Agent Logs:"
-          docker logs frankescobar/allure-docker-service
-          echo ls ${{ github.workspace }}/results
-          echo "Allure Server is running at http://localhost:5050"
+#  Artifacts:
+#    runs-on: ubuntu-latest
+#    steps:
+#
+#
+#      - name: Generate and run Allure Report
+#        run: |
+#          docker run -d -p 5050:5050 -v ${{ github.workspace }}/results:/allure-result frankescobar/allure-docker-service
+#
+#          echo "Docker Status:"
+#          docker ps -a
+#          echo "TeamCity Agent Logs:"
+#          docker logs frankescobar/allure-docker-service
+#          echo ls ${{ github.workspace }}/results
+#          echo "Allure Server is running at http://localhost:5050"

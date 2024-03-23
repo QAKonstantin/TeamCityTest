@@ -124,12 +124,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Test Artifacts
-          path: ~/download/
+          path: ${{ github.workspace }}
 
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          name: Test Artifacts
+          name: Upload Artifact
       - name: Test artifacts download
         run: ls -R
 

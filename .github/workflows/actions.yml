@@ -120,18 +120,22 @@ jobs:
         run: |
           pytest -v -m additional --alluredir=${{ github.workspace }}/results --ignore=tests/frontend/test_set_up.py
 
-      - name: Upload Artifact
+      - name: Upload Allure Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Test Artifacts
+          name: Test Allure Artifacts
+          path: ${{ github.workspace }}/results
+      - name: Upload Trace Artifact
+        with:
+          name: Test Trace Artifacts
           path: ${{ github.workspace }}/trace.zip
 
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: Upload Artifact
-      - name: Test artifacts download
-        run: ls -R
+#      - name: Download artifacts
+#        uses: actions/download-artifact@v4
+#        with:
+#          name: Upload Artifact
+#      - name: Test artifacts download
+#        run: ls -R
 
 #  Artifacts:
 #    runs-on: ubuntu-latest

@@ -55,10 +55,10 @@ jobs:
         run: |
           export ips
           ips=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
-          echo ips
+          echo $ips
           export ip=${ips%%$'\n'*}
-          echo ${ips%%$}
-          ${ips%%$'\n'}
+          echo ${ips%}
+          echo ${ips%%$'\n'}
           docker run -d --name teamcity-agent-instance -e SERVER_URL="http://$ip:8111" jetbrains/teamcity-agent
           echo "Docker Status:"
           docker ps -a

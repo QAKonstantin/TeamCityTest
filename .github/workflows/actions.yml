@@ -63,15 +63,15 @@ jobs:
           echo "TeamCity Agent Logs:"
           docker logs teamcity-agent-instance
 
-      - name: Install Python Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3.10 python3-pip
-          pip install -r requirements.txt
+#      - name: Install Python Dependencies
+#        run: |
+#          sudo apt-get update
+#          sudo apt-get install -y python3.10 python3-pip
+#          pip install -r requirements.txt
 
       - name: Run Selenoid Server
         run: |
-          docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 8111:8111 aerokube/selenoid:latest
+          docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 4444:4444 aerokube/selenoid:latest
           echo "Waiting for Selenoid server to start..."
           sleep 10
           echo "Docker Status:"

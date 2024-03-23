@@ -13,12 +13,17 @@ from utils.browser_setup import BrowserSetup
 from utils.data_generator import DataGenerator
 
 
-@pytest.fixture(scope="function", params=BROWSERS)
+@pytest.fixture(params=BROWSERS)
 def browser(request):
     playwright, browser, context, page = BrowserSetup.setup(browser_type=request.param)
     yield page
     BrowserSetup.teardown(context, browser, playwright)
 
+@pytest.fixture
+def browser_for_setup():
+    playwright, browser, context, page = BrowserSetup.setup()
+    yield page
+    BrowserSetup.teardown(context, browser, playwright)
 
 @pytest.fixture
 def user_session():

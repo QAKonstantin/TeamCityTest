@@ -9,7 +9,7 @@ from pages.setup_page import SetupPage
     "принятие пользовательского соглашения,"
     "инициализация БД,"
     "создание пользователя с ролью Администратор")
-def test_setup(browser):
+def test_setup(browser_for_setup):
     with allure.step("Сетап"):
-        setup_page = SetupPage(browser)
+        setup_page = SetupPage(browser_for_setup)
         setup_page.setup()

@@ -122,11 +122,8 @@ jobs:
 
       - uses: actions/download-artifact@v4
         if: always()
-        with:
-          name: my-artifact
-          path: ${{ github.workspace }}
       - name: Display structure of downloaded files
-        run: ls -R ${{ github.workspace }}/artifact
+        run: ls -R artifact
 
       - name: Generate and run Allure Report
         if: always()

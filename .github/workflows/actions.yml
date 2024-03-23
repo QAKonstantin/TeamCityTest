@@ -63,6 +63,11 @@ jobs:
           echo "TeamCity Agent Logs:"
           docker logs teamcity-agent-instance
 
+      - name: Install WOFF2 Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y woff2 libwoff-dev
+
       - name: Install Python Dependencies
         run: |
           sudo apt-get update
@@ -121,7 +126,7 @@ jobs:
       - name: Run Tests
         run: |
           pytest -v -m ui --alluredir=${{ github.workspace }}/results --ignore=tests/frontend/test_set_up.py
-          
+
 
       - name: Generate and run Allure Report
         run: |

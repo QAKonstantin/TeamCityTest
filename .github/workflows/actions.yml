@@ -125,10 +125,6 @@ jobs:
         with:
           name: Test Allure Artifacts
           path: ${{ github.workspace }}/results
-      - name: Upload Trace Artifact
-        with:
-          name: Test Trace Artifacts
-          path: ${{ github.workspace }}/trace.zip
 
 #      - name: Download artifacts
 #        uses: actions/download-artifact@v4

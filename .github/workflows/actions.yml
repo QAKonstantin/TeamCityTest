@@ -63,11 +63,11 @@ jobs:
           echo "TeamCity Agent Logs:"
           docker logs teamcity-agent-instance
 
-#      - name: Install Python Dependencies
-#        run: |
-#          sudo apt-get update
-#          sudo apt-get install -y python3.10 python3-pip
-#          pip install -r requirements.txt
+      #      - name: Install Python Dependencies
+      #        run: |
+      #          sudo apt-get update
+      #          sudo apt-get install -y python3.10 python3-pip
+      #          pip install -r requirements.txt
 
       - name: Run Selenoid Server
         run: |
@@ -78,8 +78,6 @@ jobs:
           docker ps -a
           echo "Selenoid Server Logs:"
           docker logs selenoid
-          chmod +x cm
-          ./cm selenoid start
 
 
       #      - name: Setup Test for Selenoid server
@@ -122,6 +120,9 @@ jobs:
         run: |
           pytest -v -m ui --alluredir=${{ github.workspace }}/results --ignore=tests/frontend/test_set_up.py
 
+      - uses: actions/download-artifact@v4
+      - name: Display structure of downloaded files
+        run: ls -R
 
       - name: Generate and run Allure Report
         run: |

@@ -125,10 +125,12 @@ jobs:
           path: ~/download/
 
   Artifacts:
+    runs-on: ubuntu-latest
+    steps:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          name: Test Artifacts download
+          name: Test Artifacts
           run: ls -R
 
       - name: Generate and run Allure Report

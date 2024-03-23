@@ -53,12 +53,8 @@ jobs:
 
       - name: Run TeamCity Agent Container
         run: |
-          export ips
-          ips=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
-          echo $ips
+          export ips=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
           export ip=${ips%%$'\n'*}
-          echo ${ips%}
-          echo ${ips%%$'\n'}
           docker run -d --name teamcity-agent-instance -e SERVER_URL="http://$ip:8111" jetbrains/teamcity-agent
           echo "Docker Status:"
           docker ps -a
@@ -71,26 +67,26 @@ jobs:
           sudo apt-get install -y python3.10 python3-pip
           pip install -r requirements.txt
 
-#      - name: Run Selenoid Server
-#        run: |
-#          docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 8111:8111 aerokube/selenoid:latest
-#          echo "Waiting for Selenoid server to start..."
-#          sleep 10
-#          echo "Docker Status:"
-#          docker ps -a
-#          echo "Selenoid Server Logs:"
-#          docker logs selenoid
-#          chmod +x cm
-#          ./cm selenoid start
+      #      - name: Run Selenoid Server
+      #        run: |
+      #          docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 8111:8111 aerokube/selenoid:latest
+      #          echo "Waiting for Selenoid server to start..."
+      #          sleep 10
+      #          echo "Docker Status:"
+      #          docker ps -a
+      #          echo "Selenoid Server Logs:"
+      #          docker logs selenoid
+      #          chmod +x cm
+      #          ./cm selenoid start
 
 
-#      - name: Setup Test for Selenoid server
-#        run: |
-#          export BASE_URL='http://localhost:4444'
-#          echo "Docker Status:"
-#          docker ps -a
-#          echo "Selenoid Server Logs:"
-#          docker logs selenoid
+      #      - name: Setup Test for Selenoid server
+      #        run: |
+      #          export BASE_URL='http://localhost:4444'
+      #          echo "Docker Status:"
+      #          docker ps -a
+      #          echo "Selenoid Server Logs:"
+      #          docker logs selenoid
 
       - name: Run Setup Test
         run: |
@@ -122,4 +118,10 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest -v -m additional --alluredir=results --ignore=tests/frontend/test_set_up.py
+          pytest -v -m additional --alluredir=${{ github.workspace }}/results --ignore=tests/frontend/test_set_up.py
+
+      - name: Generate and run Allure Report
+        run: |
+          docker run -d -p 5050:5050 -v ${{ github.workspace }}/results:/allure-report frankescobar/allure-docker-service
+          echo "Allure Server is running at http://$ip:5050"
+          sleep 60

@@ -54,6 +54,10 @@ jobs:
       - name: Run TeamCity Agent Container
         run: |
           docker run -d --name teamcity-agent-instance -e SERVER_URL="http://localhost:8111" jetbrains/teamcity-agent
+          echo "Docker Status:"
+          docker ps -a
+          echo "TeamCity Agent Logs:"
+          docker logs teamcity-agent-instance
 
       - name: Install Python Dependencies
         run: |
@@ -66,16 +70,23 @@ jobs:
           docker run -d --name selenoid -p 5050:5050 aerokube/selenoid:latest
           echo "Waiting for Selenoid server to start..."
           sleep 10
+          echo "Docker Status:"
+          docker ps -a
+          echo "Selenoid Server Logs:"
+          docker logs selenoid
 
       - name: Setup Test for Selenoid server
         run: |
           export BASE_URL='http://localhost:5050'
+          echo "Docker Status:"
+          docker ps -a
+          echo "Selenoid Server Logs:"
+          docker logs selenoid
 
       - name: Run Setup Test
         run: |
           playwright install
           pytest -v tests/frontend/test_set_up.py
-          playwright show-trace trace.zip
 
       - name: Retrieve Super User Token
         run: |

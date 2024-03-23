@@ -36,6 +36,7 @@ jobs:
             echo "Waiting..."
             sleep 5
           done
+          
           echo "Docker Status:"
           docker ps -a
           echo "TeamCity Server Logs:"
@@ -56,6 +57,7 @@ jobs:
           export ips=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
           export ip=${ips%%$'\n'*}
           docker run -d --name teamcity-agent-instance -e SERVER_URL="http://$ip:8111" jetbrains/teamcity-agent
+          
           echo "Docker Status:"
           docker ps -a
           echo "TeamCity Agent Logs:"
@@ -118,10 +120,16 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest -v -m additional --alluredir=${{ github.workspace }}/results --ignore=tests/frontend/test_set_up.py
+          pytest -v --alluredir=${{ github.workspace }}/results --ignore=tests/frontend/test_set_up.py
+          
 
       - name: Generate and run Allure Report
         run: |
           docker run -d -p 5050:5050 -v ${{ github.workspace }}/results:/allure-result frankescobar/allure-docker-service
+          
+          echo "Docker Status:"
+          docker ps -a
+          echo "TeamCity Agent Logs:"
+          docker logs frankescobar/allure-docker-service
+          echo ls ${{ github.workspace }}/results
           echo "Allure Server is running at http://localhost:5050"
-          sleep 60

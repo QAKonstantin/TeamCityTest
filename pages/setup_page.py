@@ -102,4 +102,4 @@ class SetupPage(BasePage):
         self.actions.wait_for_page_load()
         self.page_url = "/favorite/projects"
         self.actions.check_url(self.page_url, timeout=60000)
-        self.agent_page.authorize_agent()
+        # self.agent_page.authorize_agent()

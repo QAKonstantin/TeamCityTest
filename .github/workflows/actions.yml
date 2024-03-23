@@ -120,6 +120,10 @@ jobs:
         run: |
           pytest -v -m additional --alluredir=${{ github.workspace }}/results --ignore=tests/frontend/test_set_up.py
 
+      - name: Generate Allure Report
+        run: |
+          allure serve ${{ github.workspace }}/results
+
       - name: Upload Allure Artifact
         uses: actions/upload-artifact@v4
         with:

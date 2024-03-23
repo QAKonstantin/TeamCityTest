@@ -125,8 +125,8 @@ jobs:
           path: ~/download/
 
   Artifacts:
-    steps:
-      - uses: actions/download-artifact@v4
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
         with:
           name: Test Artifacts download
           run: ls -R

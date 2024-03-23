@@ -67,7 +67,7 @@ jobs:
 
       - name: Run Selenoid Server
         run: |
-          docker run -d --name selenoid -p 5050:5050 aerokube/selenoid:latest
+          docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 4444:4444 aerokube/selenoid:latest
           echo "Waiting for Selenoid server to start..."
           sleep 10
           echo "Docker Status:"
@@ -75,13 +75,13 @@ jobs:
           echo "Selenoid Server Logs:"
           docker logs selenoid
 
-      - name: Setup Test for Selenoid server
-        run: |
-          export BASE_URL='http://localhost:5050'
-          echo "Docker Status:"
-          docker ps -a
-          echo "Selenoid Server Logs:"
-          docker logs selenoid
+#      - name: Setup Test for Selenoid server
+#        run: |
+#          export BASE_URL='http://localhost:4444'
+#          echo "Docker Status:"
+#          docker ps -a
+#          echo "Selenoid Server Logs:"
+#          docker logs selenoid
 
       - name: Run Setup Test
         run: |

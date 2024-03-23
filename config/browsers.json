@@ -1,0 +1,32 @@
+{
+	"firefox": {
+		"default": "latest",
+		"versions": {
+			"latest": {
+				"image": "playwright/firefox",
+				"port": "4444",
+				"path": "/wd/hub"
+			}
+		}
+	},
+	"chrome": {
+		"default": "latest",
+		"versions": {
+			"latest": {
+				"image": "playwright/chromium",
+				"port": "4444",
+				"path": "/wd/hub"
+			}
+		}
+	},
+	"webkit": {
+		"default": "latest",
+		"versions": {
+			"latest": {
+				"image": "playwright/webkit",
+				"port": "4444",
+				"path": "/wd/hub"
+			}
+		}
+	}
+}

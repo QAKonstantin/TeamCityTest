@@ -122,6 +122,6 @@ jobs:
 
       - name: Generate and run Allure Report
         run: |
-          docker run -d -p 5050:5050 -v ${{ github.workspace }}/results:/allure-report frankescobar/allure-docker-service
-          echo "Allure Server is running at http://$ip:5050"
+          docker run -d -p 5050:5050 -v ${{ github.workspace }}/results:/allure-result frankescobar/allure-docker-service
+          echo "Allure Server is running at http://localhost:5050"
           sleep 60

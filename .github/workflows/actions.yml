@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Docker
         uses: docker/setup-buildx-action@v1
@@ -57,11 +57,6 @@ jobs:
           export ips=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
           export ip=${ips%%$'\n'*}
           docker run -d --name teamcity-agent-instance -e SERVER_URL="http://$ip:8111" jetbrains/teamcity-agent
-          
-          echo "Docker Status:"
-          docker ps -a
-          echo "TeamCity Agent Logs:"
-          docker logs teamcity-agent-instance
 
       - name: Install Python Dependencies
         run: |
@@ -119,36 +114,44 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --numprocesses auto -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
+          pytest --numprocesses auto -m additional -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
-      - name: Upload Allure Artifact
+  allure:
+    name: Generate Allure Report
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get Allure history
+        uses: actions/checkout@v3
         if: always()
         continue-on-error: true
-        uses: actions/upload-artifact@v4
         with:
-          name: Test Allure Artifacts
-          path: ${{ github.workspace }}/allure-results
+          ref: gh-pages
+          path: gh-pages
 
-      #      - name: Install Allure
-      #        run: |
-      #          sudo apt-get update
-      #          sudo apt-get install default-jre
-      #          wget https://github.com/allure-framework/allure2/releases/download/2.18.1/allure_2.18.1-1_all.deb
-      #          sudo dpkg -i allure_2.18.1-1_all.deb
-      #
-      #      - name: Generate Allure Report
-      #        run: |
-      #          allure serve ${{ github.workspace }}/allure-results
-
-      - name: Generate and run Allure Report
+      - name: Allure Report action from marketplace
+        uses: simple-elf/allure-report-action@master
         if: always()
-        continue-on-error: true
-        run: |
-          docker run -d --name allure-docker-service -p 5050:5050 -v ${{ github.workspace }}/allure-results:/allure-results frankescobar/allure-docker-service
+        with:
+          allure_results: allure-results
+          allure_history: allure-history
+          keep_reports: 2
 
-          echo "Docker Status:"
-          docker ps -a
-          echo "TeamCity Agent Logs:"
-          docker logs allure-docker-service
-          echo ls ${{ github.workspace }}/allure-results
-          echo "Allure Server is running at http://localhost:5050"
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
+
+      - name: Post the link to the report
+        if: always()
+        uses: Sibz/github-status-action@v1
+        with:
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'Test report'
+          state: 'success'
+          sha: ${{ github.event.pull_request.head.sha }}
+          target_url: simple-elf.github.io/github-allure-history/${{ github.run_number }}

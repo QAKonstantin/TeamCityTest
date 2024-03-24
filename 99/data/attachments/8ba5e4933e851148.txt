@@ -1,0 +1,27 @@
+2024-03-24 17:25:22 INFO [32mpytest tests/frontend/test_e2e_project.py::test_e2e_create_project[chromium] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjkxOTMzNzY0NjQwMzIwMjQ4NDY=' 
+-d ''
+2024-03-24 17:25:55 INFO [32mpytest tests/frontend/test_e2e_project.py::test_e2e_create_project[chromium] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:zTdAhz4zu3W' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:1296e23b-3524-41a9-a701-0e0d11b94795'
+-H 'Cookie:TCSESSIONID=5B78E26A495AB33984A01DD1FFAE29F9'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjkxOTMzNzY0NjQwMzIwMjQ4NDY=' 
+-d '' 
+ 
+
+2024-03-24 17:25:55 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by locator 'count:1,id:zTdAhz4zu3W'. Project cannot be found by external id 'zTdAhz4zu3W'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m

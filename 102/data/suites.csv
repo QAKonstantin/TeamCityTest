@@ -1,2 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sun Mar 24 17:50:10 GMT 2024","Sun Mar 24 17:51:40 GMT 2024","89684","tests.frontend","test_set_up","","","","Сетап","Сетап для проверки правильности настройки тестовой среды:принятие пользовательского соглашения,инициализация БД,создание пользователя с ролью Администратор"

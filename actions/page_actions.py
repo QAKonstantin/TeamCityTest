@@ -18,11 +18,10 @@ class PageAction:
         with allure.step(f"Проверка, что ссылка открылась в новой вкладке"):
             try:
                 with self.page.context.expect_page() as new_page:
-                    current_page = new_page.value
                     expect(new_page.value).to_have_url(expected_url)
             except Exception:
                 raise AssertionError(
-                    f"Некорректная ссылка: {current_page} \n ОР: {expected_url} \n"
+                    f"Некорректная ссылка: {new_page.value} \n ОР: {expected_url} \n"
                     f"или ссылка должна открываться в новой вкладке")
 
     def close_tab(self, n=-1):

@@ -128,36 +128,24 @@ jobs:
           name: Test Allure Artifacts
           path: ${{ github.workspace }}/allure-results
 
-      - name: Install Allure
+      #      - name: Install Allure
+      #        run: |
+      #          sudo apt-get update
+      #          sudo apt-get install default-jre
+      #          wget https://github.com/allure-framework/allure2/releases/download/2.18.1/allure_2.18.1-1_all.deb
+      #          sudo dpkg -i allure_2.18.1-1_all.deb
+      #
+      #      - name: Generate Allure Report
+      #        run: |
+      #          allure serve ${{ github.workspace }}/allure-results
+
+      - name: Generate and run Allure Report
         run: |
-          sudo apt-get update
-          sudo apt-get install default-jre
-          wget https://github.com/allure-framework/allure2/releases/download/2.18.1/allure_2.18.1-1_all.deb
-          sudo dpkg -i allure_2.18.1-1_all.deb
+          docker run -d -p 5050:5050 -v ${{ github.workspace }}/allure-results:/allure-results frankescobar/allure-docker-service
 
-      - name: Generate Allure Report
-        run: |
-          allure serve ${{ github.workspace }}/allure-results
-
-#      - name: Download artifacts
-#        uses: actions/download-artifact@v4
-#        with:
-#          name: Upload Artifact
-#      - name: Test artifacts download
-#        run: ls -R
-
-#  Artifacts:
-#    runs-on: ubuntu-latest
-#    steps:
-#
-#
-#      - name: Generate and run Allure Report
-#        run: |
-#          docker run -d -p 5050:5050 -v ${{ github.workspace }}/results:/allure-result frankescobar/allure-docker-service
-#
-#          echo "Docker Status:"
-#          docker ps -a
-#          echo "TeamCity Agent Logs:"
-#          docker logs frankescobar/allure-docker-service
-#          echo ls ${{ github.workspace }}/results
-#          echo "Allure Server is running at http://localhost:5050"
+          echo "Docker Status:"
+          docker ps -a
+          echo "TeamCity Agent Logs:"
+          docker logs frankescobar/allure-docker-service
+          echo ls ${{ github.workspace }}/allure-results
+          echo "Allure Server is running at http://localhost:5050"

@@ -16,6 +16,7 @@ from pages.build_conf_page import RunBuildPage
     "Авторизация Супер Администратором, создание проекта, билд конфигурации, шага в командной строке и запуск билда")
 @pytest.mark.build_run
 @pytest.mark.ui
+@pytest.mark.additional
 def test_e2e_run_build(project_data, build_conf_data, random_description, browser, super_admin):
     with allure.step('Подготовка данных для создания проекта и билд конфигурации'):
         project_data_1 = project_data()

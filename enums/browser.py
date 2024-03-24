@@ -1,2 +1,2 @@
-BROWSERS = ['chromium', 'firefox']
+BROWSERS = ['webkit' 'chromium', 'firefox']
 # BROWSERS = ['chromium']

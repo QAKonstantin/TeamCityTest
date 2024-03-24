@@ -41,9 +41,9 @@ class PageAction:
         with allure.step(f"Ожидание загрузки страницы"):
             self.page.wait_for_load_state('load')
 
-    def click_button(self, selector):
+    def click_button(self, selector, timeout=30000):
         with allure.step(f"Клик по элементу: {selector}"):
-            self.page.click(selector)
+            self.page.click(selector, timeout=timeout)
 
     def activate_inactive_checkbox(self, selector):
         with allure.step(f"Активация чекбокса {selector}"):
@@ -75,11 +75,11 @@ class PageAction:
         with allure.step(f"Ввод текста 'FILTERED' в элемент: {selector}"):
             self.page.fill(selector, text)
 
-    def wait_for_selector(self, selector, timeout=20000):
+    def wait_for_selector(self, selector, timeout=30000):
         with allure.step(f"Ожидаем появления элемента: {selector}"):
             self.page.wait_for_selector(selector, state="attached", timeout=timeout)
 
-    def wait_for_disappear_selector(self, selector, timeout=20000):
+    def wait_for_disappear_selector(self, selector, timeout=30000):
         with allure.step(f"Ожидаем исчезновения элемента: {selector}"):
             self.page.wait_for_selector(selector, state='detached', timeout=timeout)
 

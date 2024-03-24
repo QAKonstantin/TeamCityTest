@@ -120,12 +120,14 @@ jobs:
     name: Generate Allure Report
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@
+
 
       - name: Get Allure history
         uses: actions/checkout@v3
         if: always()
         continue-on-error: true
+         echo ${{ secrets.GITHUB_TOKEN }}
         with:
           ref: gh-pages
           path: gh-pages

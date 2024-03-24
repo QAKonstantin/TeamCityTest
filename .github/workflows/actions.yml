@@ -91,7 +91,7 @@ jobs:
       - name: Run Setup Test
         run: |
           playwright install
-          pytest -v --alluredir=allure-results tests/frontend/test_set_up.py
+          pytest -v --alluredir=${{ github.workspace }}/allure-results tests/frontend/test_set_up.py
 
       - name: Retrieve Super User Token
         run: |
@@ -118,7 +118,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest -v -m additional --alluredir=allure-results --ignore=tests/frontend/test_set_up.py
+          pytest -v -m additional --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
       - name: Upload Allure Artifact
         if: always()
@@ -126,11 +126,18 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Test Allure Artifacts
-          path: /allure-results
+          path: ${{ github.workspace }}/allure-results
+
+      - name: Install Allure
+        run: |
+          sudo apt-get update
+          sudo apt-get install default-jre
+          wget https://github.com/allure-framework/allure2/releases/download/2.18.1/allure_2.18.1-1_all.deb
+          sudo dpkg -i allure_2.18.1-1_all.deb
 
       - name: Generate Allure Report
         run: |
-          allure serve
+          allure serve ${{ github.workspace }}/allure-results
 
 #      - name: Download artifacts
 #        uses: actions/download-artifact@v4

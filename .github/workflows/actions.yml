@@ -119,7 +119,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest -v -m additional --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
+          pytest --numprocesses auto -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
       - name: Upload Allure Artifact
         if: always()

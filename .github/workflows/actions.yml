@@ -91,6 +91,7 @@ jobs:
       - name: Run Setup Test
         run: |
           playwright install
+          playwright install-deps
           pytest -v --alluredir=${{ github.workspace }}/allure-results tests/frontend/test_set_up.py
 
       - name: Retrieve Super User Token
@@ -140,6 +141,8 @@ jobs:
       #          allure serve ${{ github.workspace }}/allure-results
 
       - name: Generate and run Allure Report
+        if: always()
+        continue-on-error: true
         run: |
           docker run -d -p 5050:5050 -v ${{ github.workspace }}/allure-results:/allure-results frankescobar/allure-docker-service
 

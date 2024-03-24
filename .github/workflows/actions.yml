@@ -69,15 +69,15 @@ jobs:
           sudo apt-get install -y python3.10 python3-pip
           pip install -r requirements.txt
 
-      - name: Run Selenoid Server
-        run: |
-          docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 4444:4444 aerokube/selenoid:latest
-          echo "Waiting for Selenoid server to start..."
-          sleep 10
-          echo "Docker Status:"
-          docker ps -a
-          echo "Selenoid Server Logs:"
-          docker logs selenoid
+      #      - name: Run Selenoid Server
+      #        run: |
+      #          docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 4444:4444 aerokube/selenoid:latest
+      #          echo "Waiting for Selenoid server to start..."
+      #          sleep 10
+      #          echo "Docker Status:"
+      #          docker ps -a
+      #          echo "Selenoid Server Logs:"
+      #          docker logs selenoid
 
 
       #      - name: Setup Test for Selenoid server
@@ -144,11 +144,11 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
-          docker run -d -p 5050:5050 -v ${{ github.workspace }}/allure-results:/allure-results frankescobar/allure-docker-service
+          docker run -d --name allure-docker-service -p 5050:5050 -v ${{ github.workspace }}/allure-results:/allure-results frankescobar/allure-docker-service
 
           echo "Docker Status:"
           docker ps -a
           echo "TeamCity Agent Logs:"
-          docker logs frankescobar/allure-docker-service
+          docker logs allure-docker-service
           echo ls ${{ github.workspace }}/allure-results
           echo "Allure Server is running at http://localhost:5050"

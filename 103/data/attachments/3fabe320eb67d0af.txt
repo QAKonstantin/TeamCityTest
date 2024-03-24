@@ -1,0 +1,69 @@
+2024-03-24 17:56:43 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[chromium] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjM1Mzk5ODkyODUzNDAxMTc3MjI=' 
+-d ''
+2024-03-24 17:56:43 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[chromium] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:22b5647d-5e74-4aa6-8b93-da340dfe311e'
+-H 'Cookie:RecentLogin=; TCSESSIONID=B4F5AB0868BB0DA0027E3A1D00DC90EE'
+-H 'Content-Length:113'
+-H 'Authorization:Basic OjM1Mzk5ODkyODUzNDAxMTc3MjI=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "others", "id": "xqFSNBONXGv", "copyAllAssociatedSettings": true}' 
+ 
+
+2024-03-24 17:57:44 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[chromium] [0m
+curl - X GET 'http://localhost:8111/app/rest/buildTypes/id:RD7gFRTLDe8' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:22b5647d-5e74-4aa6-8b93-da340dfe311e'
+-H 'Cookie:TCSESSIONID=B4F5AB0868BB0DA0027E3A1D00DC90EE'
+-H 'Authorization:Basic OjM1Mzk5ODkyODUzNDAxMTc3MjI=' 
+-d ''
+2024-03-24 17:57:44 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[chromium] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/buildTypes/id:RD7gFRTLDe8' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:22b5647d-5e74-4aa6-8b93-da340dfe311e'
+-H 'Cookie:RecentLogin=; TCSESSIONID=50A1478AA70EF367C8A705D268CF09AF'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjM1Mzk5ODkyODUzNDAxMTc3MjI=' 
+-d '' 
+ 
+
+2024-03-24 17:57:44 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value 2ec96a62-d2a3-49fc-9ebf-ae136c32c941
+[0m
+2024-03-24 17:57:44 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[chromium] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:xqFSNBONXGv' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:22b5647d-5e74-4aa6-8b93-da340dfe311e'
+-H 'Cookie:TCSESSIONID=50A1478AA70EF367C8A705D268CF09AF'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjM1Mzk5ODkyODUzNDAxMTc3MjI=' 
+-d '' 
+ 
+
+2024-03-24 17:57:44 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value 2ec96a62-d2a3-49fc-9ebf-ae136c32c941
+[0m

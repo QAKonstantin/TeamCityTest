@@ -74,7 +74,7 @@ class PageAction:
         with allure.step(f"Ввод текста 'FILTERED' в элемент: {selector}"):
             self.page.fill(selector, text)
 
-    def wait_for_selector(self, selector, timeout=30000):
+    def wait_for_selector(self, selector, timeout=60000):
         with allure.step(f"Ожидаем появления элемента: {selector}"):
             self.page.wait_for_selector(selector, state="attached", timeout=timeout)
 

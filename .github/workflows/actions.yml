@@ -64,6 +64,11 @@ jobs:
           sudo apt-get install -y python3.10 python3-pip
           pip install -r requirements.txt
 
+      - name: Start selenoid
+        uses: Xotabu4/selenoid-github-action@v2
+        run: |
+          npm ci
+
       #      - name: Run Selenoid Server
       #        run: |
       #          docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 4444:4444 aerokube/selenoid:latest

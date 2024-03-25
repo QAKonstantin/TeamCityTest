@@ -86,6 +86,7 @@ def project_data(super_admin):
     yield _create_project_data
 
     for project_id in project_id_pool:
+        super_admin.api_manager.auth_api.auth_and_get_csrf(super_admin.creds)
         super_admin.api_manager.project_api.clean_up_project(project_id)
 
 
@@ -101,6 +102,7 @@ def build_conf_data(super_admin):
     yield _create_build_conf_data
 
     for build_conf_id in build_conf_id_pool:
+        super_admin.api_manager.auth_api.auth_and_get_csrf(super_admin.creds)
         super_admin.api_manager.build_conf_api.clean_up_build_conf(build_conf_id)
 
 

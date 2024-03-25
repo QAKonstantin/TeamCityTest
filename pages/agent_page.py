@@ -49,12 +49,11 @@ class AgentPage(BasePage):
             self.actions.navigate(self.page_url)
 
     def authorize_agent(self):
-        with allure.step("Авторизация агента"):
-            self.go_to_agent_page()
-            self.actions.wait_for_page_load()
-            self.agent_side_bar.expand_unauthorized_agents()
-            self.unauthorized_agents_content.click_authorize_button()
-            self.popup_authorize_agent.click_authorize_button_in_popup()
-            self.actions.wait_for_disappear_selector(self.agent_side_bar.unauthorized_agents_selector)
-            self.go_to_agent_page()
-            self.actions.wait_for_page_load()
+        self.go_to_agent_page()
+        self.actions.wait_for_page_load()
+        self.agent_side_bar.expand_unauthorized_agents()
+        self.unauthorized_agents_content.click_authorize_button()
+        self.popup_authorize_agent.click_authorize_button_in_popup()
+        self.actions.wait_for_disappear_selector(self.agent_side_bar.unauthorized_agents_selector)
+        self.go_to_agent_page()
+        self.actions.wait_for_page_load()

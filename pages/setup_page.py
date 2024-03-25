@@ -1,7 +1,6 @@
 import allure
 
 from pages.base_page import BasePage
-from pages.agent_page import AgentPage
 
 
 class FirstPageContent(BasePage):
@@ -84,9 +83,8 @@ class SetupPage(BasePage):
         self.database_setup = DatabaseConnectionSetup(page)
         self.agreement = AgreementPage(page)
         self.setup_user = SetupUserPage(page)
-        self.agent_page = AgentPage(page)
 
-    def setup(self, username="admin", password="admin"):
+    def first_steps_and_create_user(self, username="admin", password="admin"):
         self.actions.navigate(self.page_url)
         self.actions.wait_for_page_load()
         self.first_page_content.proceed_first_page()
@@ -102,4 +100,3 @@ class SetupPage(BasePage):
         self.actions.wait_for_page_load()
         self.page_url = "/favorite/projects"
         self.actions.check_url(self.page_url, timeout=30000)
-        self.agent_page.authorize_agent()

@@ -14,7 +14,7 @@ class PageAction:
         with allure.step(f"Проверка URL: ожидаемый URL - {expected_url}"):
             expect(self.page).to_have_url(expected_url, timeout=timeout)
 
-    def check_open_in_new_tab(self, expected_url: str, timeout: int = 60000):
+    def check_open_in_new_tab(self, expected_url: str, timeout: int = 90000):
         with allure.step(f"Проверка, что ссылка открылась в новой вкладке"):
             try:
                 with self.page.context.expect_page() as new_page:

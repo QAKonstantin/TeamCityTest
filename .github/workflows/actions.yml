@@ -64,28 +64,6 @@ jobs:
           sudo apt-get install -y python3.10 python3-pip
           pip install -r requirements.txt
 
-      - name: Start selenoid
-        uses: Xotabu4/selenoid-github-action@v2
-
-      #      - name: Run Selenoid Server
-      #        run: |
-      #          docker run -d --name selenoid -v ${{ github.workspace }}/config:/etc/selenoid -p 4444:4444 aerokube/selenoid:latest
-      #          echo "Waiting for Selenoid server to start..."
-      #          sleep 10
-      #          echo "Docker Status:"
-      #          docker ps -a
-      #          echo "Selenoid Server Logs:"
-      #          docker logs selenoid
-
-
-      #      - name: Setup Test for Selenoid server
-      #        run: |
-      #          export BASE_URL='http://localhost:4444'
-      #          echo "Docker Status:"
-      #          docker ps -a
-      #          echo "Selenoid Server Logs:"
-      #          docker logs selenoid
-
       - name: Run Setup Test
         run: |
           playwright install
@@ -117,7 +95,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --numprocesses auto -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
+          pytest --numprocesses 6 -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
       - name: Get Allure history
         uses: actions/checkout@v4

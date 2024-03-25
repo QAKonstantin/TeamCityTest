@@ -4,6 +4,8 @@ from pages.agent_page import AgentPage
 from pages.setup_page import SetupPage
 
 
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.parent_suite("Сетап для первого запуска TeamCity")
 @allure.title("Сетап")
 @allure.description(
     "Сетап для проверки правильности настройки тестовой среды:"

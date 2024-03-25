@@ -42,7 +42,6 @@ class AgentPage(BasePage):
         self.agent_side_bar = AgentSideBar(page)
         self.unauthorized_agents_content = UnauthorizedAgentsContent(page)
         self.popup_authorize_agent = PopupAuthorizeAgent(page)
-        self.test_test = "span[data-hint-container-id='header-agents-active']"
 
     def go_to_agent_page(self):
         with allure.step("Переход на страницу с агентами"):

@@ -1,0 +1,38 @@
+2024-03-25 07:42:39 INFO [32mpytest tests/frontend/test_check_footer.py::test_e2e_check_footer_by_roles[firefox-By agent manager] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic Ojg5NjI2NjQ4NTAwNDgwNTkwMDY=' 
+-d ''
+2024-03-25 07:42:40 INFO [32mpytest tests/frontend/test_check_footer.py::test_e2e_check_footer_by_roles[firefox-By agent manager] [0m
+curl - X POST 'http://localhost:8111/app/rest/users' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:48c73902-0bb2-4496-80cf-0b868207a4ba'
+-H 'Cookie:RecentLogin=; TCSESSIONID=DDE501DD7B33F2A3138C06B7A4BEAB82'
+-H 'Content-Length:145'
+-H 'Authorization:Basic Ojg5NjI2NjQ4NTAwNDgwNTkwMDY=' 
+-d '{"username": "again", "password": "CGXZXBLaP5p", "email": "amanda81@example.net", "roles": {"role": [{"roleId": "AGENT_MANAGER", "scope": "g"}]}}'
+2024-03-25 07:43:45 INFO [32mpytest tests/frontend/test_check_footer.py::test_e2e_check_footer_by_roles[firefox-By agent manager] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/users/again' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:48c73902-0bb2-4496-80cf-0b868207a4ba'
+-H 'Cookie:TCSESSIONID=DDE501DD7B33F2A3138C06B7A4BEAB82'
+-H 'Content-Length:0'
+-H 'Authorization:Basic Ojg5NjI2NjQ4NTAwNDgwNTkwMDY=' 
+-d '' 
+ 
+
+2024-03-25 07:43:45 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value f6699cc0-b185-419b-944c-97cfe846351c
+[0m

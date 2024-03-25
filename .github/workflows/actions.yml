@@ -66,8 +66,6 @@ jobs:
 
       - name: Start selenoid
         uses: Xotabu4/selenoid-github-action@v2
-        run: |
-          npm ci
 
       #      - name: Run Selenoid Server
       #        run: |

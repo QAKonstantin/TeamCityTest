@@ -1,0 +1,33 @@
+2024-03-25 08:44:30 INFO [32mpytest tests/frontend/test_e2e_project.py::test_e2e_delete_project[firefox] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjEyMTkzMzI1Njk3NDU1MTk2Nzc=' 
+-d ''
+2024-03-25 08:44:30 INFO [32mpytest tests/frontend/test_e2e_project.py::test_e2e_delete_project[firefox] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:eeae86d9-da11-41cc-8e09-cde500cabac5'
+-H 'Cookie:RecentLogin=; TCSESSIONID=30CE0415BC13911AA9E923D549FC72EA'
+-H 'Content-Length:109'
+-H 'Authorization:Basic OjEyMTkzMzI1Njk3NDU1MTk2Nzc=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "if", "id": "iyuaY67JtVO", "copyAllAssociatedSettings": true}' 
+ 
+
+2024-03-25 08:44:43 INFO [32mpytest tests/frontend/test_e2e_project.py::test_e2e_delete_project[firefox] [0m
+curl - X GET 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:eeae86d9-da11-41cc-8e09-cde500cabac5'
+-H 'Cookie:TCSESSIONID=30CE0415BC13911AA9E923D549FC72EA'
+-H 'Authorization:Basic OjEyMTkzMzI1Njk3NDU1MTk2Nzc=' 
+-d ''

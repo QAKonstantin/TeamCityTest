@@ -1,0 +1,12 @@
+get_build_data: 
+ + {'count': 1, 'href': '/app/rest/builds?locator=id:1', 'build': [{'id': 1, 'buildTypeId': 'EdUFTqDWVWK', 'number': '1', 'status': 'SUCCESS', 'state': 'running', 'percentageComplete': -1, 'href': '/app/rest/builds/id:1', 'webUrl': 'http://localhost:8111/viewLog.html?buildId=1&buildTypeId=EdUFTqDWVWK'}]}
+build_state_new:  running
+get_build_data: 
+ + {'count': 1, 'href': '/app/rest/builds?locator=id:1', 'build': [{'id': 1, 'buildTypeId': 'EdUFTqDWVWK', 'number': '1', 'status': 'SUCCESS', 'state': 'running', 'percentageComplete': -1, 'href': '/app/rest/builds/id:1', 'webUrl': 'http://localhost:8111/viewLog.html?buildId=1&buildTypeId=EdUFTqDWVWK'}]}
+build_state_new:  running
+get_build_data: 
+ + {'count': 1, 'href': '/app/rest/builds?locator=id:1', 'build': [{'id': 1, 'buildTypeId': 'EdUFTqDWVWK', 'number': '1', 'status': 'SUCCESS', 'state': 'running', 'percentageComplete': -1, 'href': '/app/rest/builds/id:1', 'webUrl': 'http://localhost:8111/viewLog.html?buildId=1&buildTypeId=EdUFTqDWVWK'}]}
+build_state_new:  running
+get_build_data: 
+ + {'count': 1, 'href': '/app/rest/builds?locator=id:1', 'build': [{'id': 1, 'buildTypeId': 'EdUFTqDWVWK', 'number': '1', 'status': 'SUCCESS', 'state': 'finished', 'href': '/app/rest/builds/id:1', 'webUrl': 'http://localhost:8111/viewLog.html?buildId=1&buildTypeId=EdUFTqDWVWK', 'finishOnAgentDate': '20240325T084129+0000'}]}
+build_state_new:  finished

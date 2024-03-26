@@ -18,5 +18,5 @@
    ```shell
    allure serve
 
-P.S. Для просмотра отчёта в CI необходимо перейти в workflow "pages build and deployment"
+**P.S.** Для просмотра отчёта в CI необходимо перейти в workflow "pages build and deployment"
 в job под названием "Deploy", где отображается ссылка на Allure отчёт по последнему прогону

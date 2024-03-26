@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page, expect, TimeoutError
 import allure
 
 
@@ -24,6 +24,13 @@ class PageAction:
                     f"Некорректная ссылка: {new_page.value} \n ОР: {expected_url} \n"
                     f"или ссылка должна открываться в новой вкладке")
 
+    def allure_attach(self):
+        allure.attach(
+            name=self.page.title(),
+            body=self.page.screenshot(),
+            attachment_type=allure.attachment_type.PNG
+        )
+
     def close_tab(self, n=-1):
         """
         :param n: Номер вкладки, которую необходимо закрыть. По умолчанию закрывается последняя вкладка
@@ -41,8 +48,12 @@ class PageAction:
             self.page.wait_for_load_state('load')
 
     def click_button(self, selector, timeout=30000):
-        with allure.step(f"Клик по элементу: {selector}"):
-            self.page.click(selector, timeout=timeout)
+        try:
+            with allure.step(f"Клик по элементу: {selector}"):
+                self.page.click(selector, timeout=timeout)
+        except TimeoutError:
+            self.allure_attach()
+            raise AssertionError(f'Элемент {selector} отсутствует для нажатия')
 
     def activate_inactive_checkbox(self, selector):
         with allure.step(f"Активация чекбокса {selector}"):
@@ -51,16 +62,24 @@ class PageAction:
                 assert self.page.is_checked(selector), f"Чекбокс {selector} остался неактивен"
 
     def is_element_present(self, selector):
-        with allure.step(f"Проверка видимости элемента: {selector}"):
-            expect(self.page.locator(selector)).to_be_visible()
+        try:
+            with allure.step(f"Проверка видимости элемента: {selector}"):
+                expect(self.page.locator(selector)).to_be_visible()
+        except TimeoutError:
+            self.allure_attach()
+            raise AssertionError(f'Элемент {selector} не виден на странице')
 
     def is_button_active(self, selector):
         with allure.step(f"Проверка активности кнопки: {selector}"):
             expect(self.page.locator(selector)).to_be_enabled(timeout=10000)
 
     def get_element(self, selector):
-        with allure.step(f"Получить элемент по локатору: {selector}"):
-            return self.page.locator(selector)
+        try:
+            with allure.step(f"Получить элемент по локатору: {selector}"):
+                return self.page.locator(selector)
+        except TimeoutError:
+            self.allure_attach()
+            raise AssertionError(f'Элемент {selector} не найден')
 
     def get_text(self, selector) -> str:
         with allure.step(f"Получить текст по локатору: {selector}"):
@@ -75,12 +94,20 @@ class PageAction:
             self.page.fill(selector, text)
 
     def wait_for_selector(self, selector, timeout=60000):
-        with allure.step(f"Ожидаем появления элемента: {selector}"):
-            self.page.wait_for_selector(selector, state="attached", timeout=timeout)
+        try:
+            with allure.step(f"Ожидаем появления элемента: {selector}"):
+                self.page.wait_for_selector(selector, state="attached", timeout=timeout)
+        except TimeoutError:
+            self.allure_attach()
+            raise AssertionError(f'Элемент {selector} не отобразился')
 
     def wait_for_disappear_selector(self, selector, timeout=30000):
-        with allure.step(f"Ожидаем исчезновения элемента: {selector}"):
-            self.page.wait_for_selector(selector, state='detached', timeout=timeout)
+        try:
+            with allure.step(f"Ожидаем исчезновения элемента: {selector}"):
+                self.page.wait_for_selector(selector, state='detached', timeout=timeout)
+        except TimeoutError:
+            self.allure_attach()
+            raise AssertionError(f'Элемент {selector} не исчез')
 
     def assert_text_present_on_page(self, text):
         with allure.step(f"Проверка наличия текста '{text}' на странице"):

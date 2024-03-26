@@ -1,0 +1,40 @@
+2024-03-26 19:13:51 INFO [32mpytest tests/frontend/test_e2e_project.py::test_e2e_create_project[firefox] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjYzODk3MDQxMzUzMjYyOTQ3MjA=' 
+-d ''
+2024-03-26 19:14:53 INFO [32mpytest tests/frontend/test_e2e_project.py::test_e2e_create_project[firefox] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:1dd7ccab-8307-4df0-9a16-e35f7354ae72'
+-H 'Cookie:TCSESSIONID=DCA3FB5915C7F8B3934D263B6D6E158F'
+-H 'Authorization:Basic OjYzODk3MDQxMzUzMjYyOTQ3MjA=' 
+-d '' 
+ 
+
+2024-03-26 19:14:53 INFO [32mpytest tests/frontend/test_e2e_project.py::test_e2e_create_project[firefox] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:gY3SQUlSyfE' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:4ff550ba-4db3-4fc6-a2b3-0fedcb05afd3'
+-H 'Cookie:RecentLogin=; TCSESSIONID=2B4989F16C55625796D48460656F67BA'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjYzODk3MDQxMzUzMjYyOTQ3MjA=' 
+-d '' 
+ 
+
+2024-03-26 19:14:53 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by locator 'count:1,id:gY3SQUlSyfE'. Project cannot be found by external id 'gY3SQUlSyfE'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m

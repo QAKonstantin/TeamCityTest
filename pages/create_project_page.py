@@ -7,7 +7,7 @@ class MenuListCreateFragment(BasePage):
     def __init__(self, page):
         super().__init__(page)
         self.create_from_url_selector = "a.createOption:has-text('From a repository URL')"
-        self.create_manually_selector = "a.createOption:has-text(' Manually1')"
+        self.create_manually_selector = "a.createOption:has-text(' Manually')"
 
     def click_create_from_url(self):
         with allure.step("Выбор создания по URL"):
@@ -15,13 +15,13 @@ class MenuListCreateFragment(BasePage):
 
     def click_create_manually(self):
         with allure.step("Выбор создания вручную"):
-            self.actions.click_button(self.create_manually_selector, timeout=1000)
+            self.actions.click_button(self.create_manually_selector)
 
 
 class CreateFormContainerFragment(BasePage):
     def __init__(self, page):
         super().__init__(page)
-        self.project_name_selector = "input#name1"
+        self.project_name_selector = "input#name"
         self.project_id_selector = "input#externalId"
         self.project_description_selector = "input#description"
         self.create_project_button = "input#createProject"

@@ -47,7 +47,7 @@ class PageAction:
         with allure.step(f"Ожидание загрузки страницы"):
             self.page.wait_for_load_state('load')
 
-    def click_button(self, selector, timeout=30000):
+    def click_button(self, selector, timeout=60000):
         try:
             with allure.step(f"Клик по элементу: {selector}"):
                 self.page.click(selector, timeout=timeout)

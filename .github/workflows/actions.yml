@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-tests:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -64,6 +64,11 @@ jobs:
           sudo apt-get install -y python3.10 python3-pip
           pip install -r requirements.txt
 
+  setup:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Run Setup Test
         run: |
           playwright install
@@ -93,6 +98,11 @@ jobs:
           fi
         shell: /usr/bin/bash -e {0}
 
+  run-tests:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Run Tests
         run: |
           pytest --numprocesses auto -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
@@ -100,6 +110,7 @@ jobs:
   allure-generate:
     needs: run-tests
     runs-on: ubuntu-latest
+    if: always()
 
     steps:
       - name: Checkout repository

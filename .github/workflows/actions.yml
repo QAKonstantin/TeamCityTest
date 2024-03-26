@@ -98,7 +98,12 @@ jobs:
           pytest --numprocesses auto -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
   allure generate:
+    runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Get Allure history
         uses: actions/checkout@v4
         if: always()

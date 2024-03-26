@@ -15,7 +15,6 @@ from pages.edit_project_page import ProjectEditPage
 @allure.description("Авторизация Супер Администратором и создание проекта")
 @pytest.mark.projects
 @pytest.mark.ui
-@pytest.mark.additional
 def test_e2e_create_project(project_data, random_description, browser, super_admin):
     project_data_1 = project_data()
 

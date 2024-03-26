@@ -58,17 +58,19 @@ jobs:
           export ip=${ips%%$'\n'*}
           docker run -d --name teamcity-agent-instance -e SERVER_URL="http://$ip:8111" jetbrains/teamcity-agent
 
-      - name: Install Python Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3.10 python3-pip
-          pip install -r requirements.txt
+
 
   setup:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install Python Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3.10 python3-pip
+          pip install -r requirements.txt
+
       - name: Run Setup Test
         run: |
           playwright install

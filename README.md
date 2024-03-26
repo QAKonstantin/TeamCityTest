@@ -1,9 +1,6 @@
 ## Инструкция для запуска автотестов:
 
 Необходимо в корневой директории добавить файл .env с переменными окружения:<br/>
--**SUPER_USER_TOKEN** со значением токена Супер администратора<br/>
--**BROWSER_WIDTH**<br/>
--**BROWSER_HEIGHT**<br/>
 -**SYSTEM_VERSION** = ```"TeamCity Professional 2023.11.3 (build 147512)"```<br/>
 -**COPYRIGHT_TEXT** = ```"Copyright © 2006–2024 JetBrains s.r.o."```
 

@@ -6,3 +6,4 @@ pydantic==2.6.1
 pytest-assume==2.4.3
 pytest-xdist==3.5.0
 allure-pytest==2.13.2
+playwright==1.41.2

@@ -107,6 +107,7 @@ class TestBuildConfCreate:
     @allure.title('Проверка невозможности создания билд конфигурации')
     @allure.description('Проверяется валидация с пустыми атрибутами билд конфигурации')
     @pytest.mark.build_conf
+    @pytest.mark.api
     def test_create_build_conf_with_empty_attributes(self, project_data, build_conf_data, super_admin, attribute,
                                                      status_code, text_error, value):
         with (allure.step('Подготовка данных для создания проекта и билд конфигурации')):

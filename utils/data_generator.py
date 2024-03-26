@@ -32,3 +32,12 @@ class DataGenerator:
         Генерация случайного email
         """
         return faker_instance.email()
+
+    @staticmethod
+    def fake_description(n=1):
+        """
+        Генерация случайного описания
+        :param n: количество генерируемых предложений. По умолчанию 1
+        :return: возвращается список предложений
+        """
+        return ' '.join(faker_instance.sentences(n))

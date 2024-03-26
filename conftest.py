@@ -7,7 +7,17 @@ from data.build_run_data import BuildRunData
 from data.project_data import ProjectData
 from data.user_data import UserData
 from entities.user import User, Role
+from enums.browser import BROWSERS
 from resources.user_creds import SuperAdminCreds
+from utils.browser_setup import BrowserSetup
+from utils.data_generator import DataGenerator
+
+
+@pytest.fixture(params=BROWSERS)
+def browser(request):
+    playwright, browser, context, page = BrowserSetup.setup(browser_type=request.param)
+    yield page
+    BrowserSetup.teardown(context, browser, playwright)
 
 
 @pytest.fixture
@@ -94,3 +104,8 @@ def build_run_data():
         return build_run_data
 
     yield _create_build_run_data
+
+
+@pytest.fixture
+def random_description():
+    return DataGenerator.fake_description()

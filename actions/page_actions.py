@@ -18,14 +18,6 @@ class PageAction:
             self.allure_attach()
             raise AssertionError(f'URL должен быть равен {expected_url}')
 
-    def contain_url(self, expected_url: str, timeout=10000):
-        try:
-            with allure.step(f"Проверка URL: ожидаемый URL - {expected_url}"):
-                expect(self.page).to_have_url(f"**/{expected_url}/**", timeout=timeout)
-        except TimeoutError:
-            self.allure_attach()
-            raise AssertionError(f'URL {self.page.url} не совпадает с ОР: {expected_url}')
-
     @allure.step("Проверка, что ссылка открылась в новой вкладке")
     def check_open_in_new_tab(self, expected_url: str, timeout: int = 120000):
         try:

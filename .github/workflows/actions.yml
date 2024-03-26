@@ -115,8 +115,8 @@ jobs:
         uses: simple-elf/allure-report-action@v1.9
         if: always()
         with:
-          allure_results: ${{ github.workspace }}/allure-results
-          allure_history: ${{ github.workspace }}/allure-history
+          allure_results: allure-results
+          allure_history: allure-history
           keep_reports: 3
 
       - name: Deploy report to Github Pages
@@ -125,4 +125,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ${{ github.workspace }}/allure-history
+          PUBLISH_DIR: allure-history

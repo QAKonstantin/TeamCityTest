@@ -95,7 +95,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --numprocesses auto -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
+          pytest --numprocesses auto -m additional -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
   allure-generate:
     needs: run-tests

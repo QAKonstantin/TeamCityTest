@@ -1,0 +1,112 @@
+2024-03-26 15:58:23 INFO [32mpytest tests/frontend/test_e2e_run_build.py::test_e2e_run_build[chromium] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjIyMDgzMzE4MDU1NDMxNzM5NjQ=' 
+-d ''
+2024-03-26 15:58:23 INFO [32mpytest tests/frontend/test_e2e_run_build.py::test_e2e_run_build[chromium] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:39f0e00e-1389-4ab2-ad0c-cf4234b77eb8'
+-H 'Cookie:RecentLogin=; TCSESSIONID=701972B0E047375CB2B5D1AC6DE4E9D8'
+-H 'Content-Length:111'
+-H 'Authorization:Basic OjIyMDgzMzE4MDU1NDMxNzM5NjQ=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "idea", "id": "pFVXFLFCsyA", "copyAllAssociatedSettings": true}' 
+ 
+
+2024-03-26 15:58:23 INFO [32mpytest tests/frontend/test_e2e_run_build.py::test_e2e_run_build[chromium] [0m
+curl - X POST 'http://localhost:8111/app/rest/buildTypes' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:39f0e00e-1389-4ab2-ad0c-cf4234b77eb8'
+-H 'Cookie:TCSESSIONID=701972B0E047375CB2B5D1AC6DE4E9D8'
+-H 'Content-Length:338'
+-H 'Authorization:Basic OjIyMDgzMzE4MDU1NDMxNzM5NjQ=' 
+-d '{"id": "T2xYWYxlaUf", "name": "apply", "project": {"id": "pFVXFLFCsyA"}, "steps": {"step": [{"name": "myCommandLineStep", "type": "simpleRunner", "properties": {"property": [{"name": "script.content", "value": "echo 'Hello World!'"}, {"name": "teamcity.step.mode", "value": "default"}, {"name": "use.custom.script", "value": "true"}]}}]}}'
+2024-03-26 15:58:49 INFO [32mpytest tests/frontend/test_e2e_run_build.py::test_e2e_run_build[chromium] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:39f0e00e-1389-4ab2-ad0c-cf4234b77eb8'
+-H 'Cookie:TCSESSIONID=701972B0E047375CB2B5D1AC6DE4E9D8'
+-H 'Authorization:Basic OjIyMDgzMzE4MDU1NDMxNzM5NjQ=' 
+-d '' 
+ 
+
+2024-03-26 15:58:49 INFO [32mpytest tests/frontend/test_e2e_run_build.py::test_e2e_run_build[chromium] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/buildTypes/id:T2xYWYxlaUf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:39f0e00e-1389-4ab2-ad0c-cf4234b77eb8'
+-H 'Cookie:TCSESSIONID=701972B0E047375CB2B5D1AC6DE4E9D8'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjIyMDgzMzE4MDU1NDMxNzM5NjQ=' 
+-d '' 
+ 
+
+2024-03-26 15:58:49 INFO [32mpytest tests/frontend/test_e2e_run_build.py::test_e2e_run_build[chromium] (teardown)[0m
+curl - X GET 'http://localhost:8111/app/rest/buildTypes' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:39f0e00e-1389-4ab2-ad0c-cf4234b77eb8'
+-H 'Cookie:TCSESSIONID=701972B0E047375CB2B5D1AC6DE4E9D8'
+-H 'Authorization:Basic OjIyMDgzMzE4MDU1NDMxNzM5NjQ=' 
+-d '' 
+ 
+
+2024-03-26 15:58:49 INFO [32mpytest tests/frontend/test_e2e_run_build.py::test_e2e_run_build[chromium] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:39f0e00e-1389-4ab2-ad0c-cf4234b77eb8'
+-H 'Cookie:TCSESSIONID=701972B0E047375CB2B5D1AC6DE4E9D8'
+-H 'Authorization:Basic OjIyMDgzMzE4MDU1NDMxNzM5NjQ=' 
+-d '' 
+ 
+
+2024-03-26 15:58:49 INFO [32mpytest tests/frontend/test_e2e_run_build.py::test_e2e_run_build[chromium] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:pFVXFLFCsyA' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:39f0e00e-1389-4ab2-ad0c-cf4234b77eb8'
+-H 'Cookie:TCSESSIONID=701972B0E047375CB2B5D1AC6DE4E9D8'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjIyMDgzMzE4MDU1NDMxNzM5NjQ=' 
+-d '' 
+ 
+
+2024-03-26 15:58:49 INFO [32mpytest tests/frontend/test_e2e_run_build.py::test_e2e_run_build[chromium] (teardown)[0m
+curl - X GET 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:39f0e00e-1389-4ab2-ad0c-cf4234b77eb8'
+-H 'Cookie:TCSESSIONID=701972B0E047375CB2B5D1AC6DE4E9D8'
+-H 'Authorization:Basic OjIyMDgzMzE4MDU1NDMxNzM5NjQ=' 
+-d ''

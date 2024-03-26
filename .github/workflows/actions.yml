@@ -109,7 +109,7 @@ jobs:
         continue-on-error: true
         with:
           ref: hometask-3
-          path: gh-pages
+          path: hometask-3
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@v1.9

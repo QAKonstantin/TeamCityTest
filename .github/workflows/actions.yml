@@ -95,21 +95,15 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --numprocesses auto -m additional -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
+          pytest --numprocesses auto -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
-  allure-generate:
-    needs: run-tests
-    runs-on: ubuntu-latest
-    if: always()
-
-    steps:
       - name: Get Allure history
         uses: actions/checkout@v4
         if: always()
         continue-on-error: true
         with:
-          ref: hometask-3
-          path: hometask-3
+          ref: gh-pages
+          path: gh-pages
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@v1.9

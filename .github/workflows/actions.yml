@@ -108,7 +108,7 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          ref: gh-pages
+          ref: hometask-3
           path: gh-pages
 
       - name: Allure Report action from marketplace

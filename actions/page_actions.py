@@ -39,9 +39,9 @@ class PageAction:
             all_tabs = self.page.context.pages
             all_tabs[n].close()
 
-    def wait_for_url_changed(self, expected_url: str):
+    def wait_for_url_changed(self, expected_url: str, timeout: int = 60000):
         with allure.step(f"Ожидание изменения URL на {expected_url}"):
-            self.page.wait_for_url(expected_url)
+            self.page.wait_for_url(expected_url, timeout=timeout)
 
     def wait_for_page_load(self):
         with allure.step(f"Ожидание загрузки страницы"):

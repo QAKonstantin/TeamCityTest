@@ -25,7 +25,7 @@ jobs:
 
       - name: Run TeamCity Server Container
         run: |
-          docker run -d --name teamcity-server-instance -v ${{ github.workspace }}/logs:/opt/teamcity/logs -p 8111:8111 jetbrains/teamcity-server
+          docker run -d --name teamcity-server-instance -v ${{ github.workspace }}/logs:/opt/teamcity/logs -p 8111:8111 jetbrains/teamcity-server:2023.11.4
           echo "Waiting for TeamCity server to start..."
           for i in {1..30}; do
             if docker logs teamcity-server-instance 2>&1 | grep -q 'TeamCity process PID is';

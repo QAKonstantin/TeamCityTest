@@ -25,6 +25,7 @@ class Footer:
         self.actions.is_button_active(self.about_teamcity, timeout=30000)
         self.actions.click_button(self.about_teamcity)
         self.page_url = f"{JETBRAINS_URL}/teamcity/?fromServer"
+        self.actions.wait_for_page_load()
         self.actions.check_open_in_new_tab(self.page_url)
         if close_tab:
             self.actions.close_tab()
@@ -37,6 +38,7 @@ class Footer:
         self.actions.is_button_active(self.license_agreement, timeout=30000)
         self.actions.click_button(self.license_agreement)
         self.page_url = f"{BASE_URL}/showAgreement.html"
+        self.actions.wait_for_page_load()
         self.actions.check_open_in_new_tab(self.page_url)
         if close_tab:
             self.actions.close_tab()

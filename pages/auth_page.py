@@ -23,7 +23,7 @@ class AuthLoginForm(BasePage):
             self.actions.input_text(self.password_input, password)
 
     def click_login(self):
-        with allure.step("Авторизация пользователя"):
+        with allure.step("Нажать кнопку для авторизации"):
             self.actions.click_button(self.login_btn)
 
     def go_to_login_page(self):
@@ -54,4 +54,3 @@ class AuthLoginBySuperAdmin(AuthLoginForm):
         self.go_to_login_page()
         self.input_token(token)
         self.click_login()
-        # self.actions.contain_uri('/favorite/projects')

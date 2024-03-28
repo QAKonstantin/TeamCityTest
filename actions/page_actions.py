@@ -8,9 +8,13 @@ class PageAction:
     def __init__(self, page: Page):
         self.page = page
 
-    def navigate(self, url):
+    def navigate(self, url, timeout=0):
         with allure.step(f"Переход на URL: {url}"):
-            self.page.goto(url)
+            try:
+                self.page.goto(url, timeout=timeout)
+            except Exception as e:
+                self.allure_attach_screenshot()
+                raise AssertionError(e)
 
     def contain_uri(self, uri: str, timeout: int = 30000):
         try:

@@ -1,0 +1,38 @@
+2024-03-28 12:55:40 INFO [32mpytest tests/frontend/test_check_footer.py::test_e2e_check_footer_by_roles[chromium-By project admin] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjgwNzM3MDI3NzUzNjYzMzY2MTM=' 
+-d ''
+2024-03-28 12:55:40 INFO [32mpytest tests/frontend/test_check_footer.py::test_e2e_check_footer_by_roles[chromium-By project admin] [0m
+curl - X POST 'http://localhost:8111/app/rest/users' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:2cec7429-3283-4960-acf5-252730cb2846'
+-H 'Cookie:RecentLogin=; TCSESSIONID=3C8BE299EFCC03F6C3F4B553459AA7BD'
+-H 'Content-Length:146'
+-H 'Authorization:Basic OjgwNzM3MDI3NzUzNjYzMzY2MTM=' 
+-d '{"username": "employee", "password": "sEFSca2NYFx", "email": "adam28@example.com", "roles": {"role": [{"roleId": "PROJECT_ADMIN", "scope": "g"}]}}'
+2024-03-28 12:58:03 INFO [32mpytest tests/frontend/test_check_footer.py::test_e2e_check_footer_by_roles[chromium-By project admin] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/users/employee' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:2cec7429-3283-4960-acf5-252730cb2846'
+-H 'Cookie:TCSESSIONID=3C8BE299EFCC03F6C3F4B553459AA7BD'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjgwNzM3MDI3NzUzNjYzMzY2MTM=' 
+-d '' 
+ 
+
+2024-03-28 12:58:03 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value a905e9b7-a534-4ccd-87ce-4ad7c3a7b659
+[0m

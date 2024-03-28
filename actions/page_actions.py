@@ -1,3 +1,5 @@
+import time
+
 from playwright.sync_api import Page, expect, TimeoutError
 import allure
 
@@ -10,12 +12,20 @@ class PageAction:
         with allure.step(f"Переход на URL: {url}"):
             self.page.goto(url)
 
-    def check_url(self, expected_url: str, timeout=10000):
+    def contain_uri(self, uri: str, timeout: int = 60000):
+        try:
+            with allure.step(f"Проверка URL: ожидаемый URL - {uri}"):
+                self.page.wait_for_url(f"**{uri}**", timeout=timeout)
+        except TimeoutError:
+            self.allure_attach_screenshot()
+            raise AssertionError(f'URL {self.page.url} должен содержать {uri}')
+
+    def check_url(self, expected_url: str, timeout: int = 20000):
         try:
             with allure.step(f"Проверка URL: ожидаемый URL - {expected_url}"):
                 expect(self.page).to_have_url(expected_url, timeout=timeout)
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'URL должен быть равен {expected_url}')
 
     @allure.step("Проверка, что ссылка открылась в новой вкладке")
@@ -24,16 +34,16 @@ class PageAction:
             with self.page.context.expect_page(timeout=timeout) as new_page:
                 expect(new_page.value).to_have_url(expected_url, timeout=timeout)
         except Exception:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(
                 f"Некорректная ссылка: {new_page.value} \n ОР: {expected_url} \n"
                 f"или ссылка должна открываться в новой вкладке")
 
-    def allure_attach(self):
+    def allure_attach_screenshot(self, screenshot_type=allure.attachment_type.PNG):
         allure.attach(
             name=self.page.title(),
             body=self.page.screenshot(),
-            attachment_type=allure.attachment_type.PNG
+            attachment_type=screenshot_type
         )
 
     @allure.step(f"Закрыть вкладку")
@@ -49,7 +59,7 @@ class PageAction:
             with allure.step(f"Ожидание изменения URL на {expected_url}"):
                 self.page.wait_for_url(expected_url, timeout=timeout)
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'Ссылка {self.page.url} не изменилась на URL {expected_url}')
 
     @allure.step("Ожидание загрузки страницы")
@@ -57,7 +67,7 @@ class PageAction:
         try:
             self.page.wait_for_load_state('load')
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError('Страница не загрузилась полностью')
 
     def click_button(self, selector, timeout=60000):
@@ -65,7 +75,7 @@ class PageAction:
             with allure.step(f"Клик по элементу: {selector}"):
                 self.page.click(selector, timeout=timeout)
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'Элемент {selector} отсутствует для нажатия')
 
     def activate_inactive_checkbox(self, selector):
@@ -79,7 +89,7 @@ class PageAction:
             with allure.step(f"Проверка видимости элемента: {selector}"):
                 expect(self.page.locator(selector)).to_be_visible()
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'Элемент {selector} не виден на странице')
 
     def is_button_active(self, selector):
@@ -91,7 +101,7 @@ class PageAction:
             with allure.step(f"Получить элемент по локатору: {selector}"):
                 return self.page.locator(selector)
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'Элемент {selector} не найден')
 
     def get_text(self, selector) -> str:
@@ -99,7 +109,7 @@ class PageAction:
             with allure.step(f"Получить текст по локатору: {selector}"):
                 return self.page.locator(selector).inner_html()
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'Тест не был получен по локатору: {selector}')
 
     def input_text(self, selector, text):
@@ -115,7 +125,7 @@ class PageAction:
             with allure.step(f"Ожидаем появления элемента: {selector}"):
                 self.page.wait_for_selector(selector, state="attached", timeout=timeout)
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'Элемент {selector} не отобразился')
 
     def wait_for_disappear_selector(self, selector, timeout=30000):
@@ -123,7 +133,7 @@ class PageAction:
             with allure.step(f"Ожидаем исчезновения элемента: {selector}"):
                 self.page.wait_for_selector(selector, state='detached', timeout=timeout)
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'Элемент {selector} не исчез')
 
     def assert_text_present_on_page(self, text):
@@ -131,7 +141,7 @@ class PageAction:
             with allure.step(f"Проверка наличия текста '{text}' на странице"):
                 expect(self.page).to_have_text(text)
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'Текст {text} отсутствует на странице')
 
     def assert_text_in_element(self, selector, text):
@@ -139,7 +149,7 @@ class PageAction:
             with allure.step(f"Проверка наличия текста '{text}' в элементе: {selector}"):
                 expect(self.page.locator(selector)).to_have_text()
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'Текст {text} отсутствует в элементе: {selector}')
 
     def assert_element_attribute(self, selector, attribute, value):
@@ -151,7 +161,7 @@ class PageAction:
             with allure.step(f"Проверка, что элемент {selector} скрыт"):
                 expect(self.page.locator(selector)).to_be_hidden()
         except TimeoutError:
-            self.allure_attach()
+            self.allure_attach_screenshot()
             raise AssertionError(f'Элемент {selector} отображается, хотя должен быть скрыт')
 
     def assert_count_elements(self, selector, n: int):

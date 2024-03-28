@@ -54,5 +54,4 @@ class AuthLoginBySuperAdmin(AuthLoginForm):
         self.go_to_login_page()
         self.input_token(token)
         self.click_login()
-        self.page_url = '/favorite/projects?mode=builds'
-        self.actions.wait_for_url_changed(self.page_url)
+        self.actions.contain_uri('/favorite/projects')

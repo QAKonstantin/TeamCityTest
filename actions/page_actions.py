@@ -12,10 +12,10 @@ class PageAction:
         with allure.step(f"Переход на URL: {url}"):
             self.page.goto(url)
 
-    def contain_uri(self, uri: str, timeout: int = 60000):
+    def contain_uri(self, uri: str, timeout: int = 30000):
         try:
             with allure.step(f"Проверка URL: ожидаемый URL - {uri}"):
-                self.page.wait_for_url(f"**{uri}**", timeout=timeout)
+                expect(self.page).to_have_url(f"**{uri}**", timeout=timeout)
         except TimeoutError:
             self.allure_attach_screenshot()
             raise AssertionError(f'URL {self.page.url} должен содержать {uri}')

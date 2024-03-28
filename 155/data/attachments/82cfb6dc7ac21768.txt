@@ -1,0 +1,90 @@
+2024-03-28 12:23:49 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[webkit] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjQwNTkyNDUyNjkyNjAyNDY4MDM=' 
+-d ''
+2024-03-28 12:23:49 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[webkit] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:1d4c93ae-c744-4d60-a842-4d4d65fb205b'
+-H 'Cookie:RecentLogin=; TCSESSIONID=DC2356CA20C58C58C8B8EEACF0D2B3F6'
+-H 'Content-Length:116'
+-H 'Authorization:Basic OjQwNTkyNDUyNjkyNjAyNDY4MDM=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "certainly", "id": "tejOExO6jNU", "copyAllAssociatedSettings": true}'
+2024-03-28 12:24:05 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[webkit] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:1d4c93ae-c744-4d60-a842-4d4d65fb205b'
+-H 'Cookie:TCSESSIONID=DC2356CA20C58C58C8B8EEACF0D2B3F6'
+-H 'Authorization:Basic OjQwNTkyNDUyNjkyNjAyNDY4MDM=' 
+-d '' 
+ 
+
+2024-03-28 12:24:05 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[webkit] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/buildTypes/id:FIPHXrmfekk' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:1d4c93ae-c744-4d60-a842-4d4d65fb205b'
+-H 'Cookie:TCSESSIONID=DC2356CA20C58C58C8B8EEACF0D2B3F6'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjQwNTkyNDUyNjkyNjAyNDY4MDM=' 
+-d '' 
+ 
+
+2024-03-28 12:24:05 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No build type nor template is found by id 'FIPHXrmfekk'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m
+2024-03-28 12:24:05 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[webkit] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:1d4c93ae-c744-4d60-a842-4d4d65fb205b'
+-H 'Cookie:TCSESSIONID=DC2356CA20C58C58C8B8EEACF0D2B3F6'
+-H 'Authorization:Basic OjQwNTkyNDUyNjkyNjAyNDY4MDM=' 
+-d '' 
+ 
+
+2024-03-28 12:24:05 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[webkit] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:tejOExO6jNU' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:1d4c93ae-c744-4d60-a842-4d4d65fb205b'
+-H 'Cookie:TCSESSIONID=DC2356CA20C58C58C8B8EEACF0D2B3F6'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjQwNTkyNDUyNjkyNjAyNDY4MDM=' 
+-d '' 
+ 
+
+2024-03-28 12:24:05 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::test_e2e_create_build_conf[webkit] (teardown)[0m
+curl - X GET 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:1d4c93ae-c744-4d60-a842-4d4d65fb205b'
+-H 'Cookie:TCSESSIONID=DC2356CA20C58C58C8B8EEACF0D2B3F6'
+-H 'Authorization:Basic OjQwNTkyNDUyNjkyNjAyNDY4MDM=' 
+-d ''

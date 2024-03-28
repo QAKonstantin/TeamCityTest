@@ -95,7 +95,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --numprocesses 2 -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
+          pytest -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
       - name: Get Allure history
         uses: actions/checkout@v4

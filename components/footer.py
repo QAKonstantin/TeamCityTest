@@ -22,7 +22,7 @@ class Footer:
         Переход по ссылке о Teamcity
         :param close_tab: Флаг для закрытия текущей вкладки. По умолчанию вкладка не закрывается
         """
-        self.actions.is_button_active(self.about_teamcity)
+        self.actions.is_button_active(self.about_teamcity, timeout=30000)
         self.actions.click_button(self.about_teamcity)
         self.page_url = f"{JETBRAINS_URL}/teamcity/?fromServer"
         self.actions.check_open_in_new_tab(self.page_url)
@@ -34,7 +34,7 @@ class Footer:
         Переход по ссылке с лицензионным соглашением
         :param close_tab: Флаг для закрытия текущей вкладки. По умолчанию вкладка не закрывается
         """
-        self.actions.is_button_active(self.license_agreement)
+        self.actions.is_button_active(self.license_agreement, timeout=30000)
         self.actions.click_button(self.license_agreement)
         self.page_url = f"{BASE_URL}/showAgreement.html"
         self.actions.check_open_in_new_tab(self.page_url)

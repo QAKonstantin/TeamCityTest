@@ -92,9 +92,9 @@ class PageAction:
             self.allure_attach_screenshot()
             raise AssertionError(f'Элемент {selector} не виден на странице')
 
-    def is_button_active(self, selector):
+    def is_button_active(self, selector, timeout=10000):
         with allure.step(f"Проверка активности кнопки: {selector}"):
-            expect(self.page.locator(selector)).to_be_enabled(timeout=10000)
+            expect(self.page.locator(selector)).to_be_enabled(timeout=timeout)
 
     def get_element(self, selector):
         try:

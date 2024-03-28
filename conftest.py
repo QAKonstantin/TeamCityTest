@@ -1,3 +1,4 @@
+import allure
 import pytest
 import requests
 
@@ -8,9 +9,11 @@ from data.project_data import ProjectData
 from data.user_data import UserData
 from entities.user import User, Role
 from enums.browser import BROWSERS
+from pages.auth_page import AuthLoginForm, AuthLoginBySuperAdmin
 from resources.user_creds import SuperAdminCreds
 from utils.browser_setup import BrowserSetup
 from utils.data_generator import DataGenerator
+from components.header import Header
 
 
 @pytest.fixture(params=BROWSERS)
@@ -25,6 +28,22 @@ def browser_for_setup():
     playwright, browser, context, page = BrowserSetup.setup()
     yield page
     BrowserSetup.teardown(context, browser, playwright)
+
+
+@pytest.fixture
+def login(browser):
+    with allure.step("Авторизация под Администратором"):
+        login_browser = AuthLoginForm(browser)
+        login_browser.login(username="admin", password="admin")
+        login_browser.header.check_user_avatar()
+
+
+@pytest.fixture
+def login_by_super_admin(browser):
+    with allure.step("Авторизация под Супер Администратором"):
+        login_super_admin_browser = AuthLoginBySuperAdmin(browser)
+        login_super_admin_browser.login_by_super_admin()
+        login_super_admin_browser.header.check_user_avatar()
 
 
 @pytest.fixture

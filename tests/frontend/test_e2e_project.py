@@ -2,7 +2,6 @@ import allure
 import pytest
 
 from data.project_data import ProjectResponseModel, ProjectData
-from pages.auth_page import AuthLoginBySuperAdmin
 from pages.create_project_page import ProjectCreationPage
 from pages.edit_project_page import ProjectEditPage
 
@@ -12,16 +11,12 @@ class TestProjectE2E:
     @allure.parent_suite("UI тесты")
     @allure.suite("Управление проектами")
     @allure.sub_suite("Создание проекта")
-    @allure.title("Cоздание проекта под Супер Администратором")
-    @allure.description("Авторизация Супер Администратором и создание проекта")
+    @allure.title("Cоздание проекта под Администратором")
+    @allure.description("Авторизация Администратором и создание проекта")
     @pytest.mark.projects
     @pytest.mark.ui
-    def test_e2e_create_project(self, project_data, random_description, browser, super_admin):
+    def test_e2e_create_project(self, project_data, random_description, browser, super_admin, login):
         project_data_1 = project_data()
-
-        with allure.step("Авторизация под Супер Администратором"):
-            login_browser = AuthLoginBySuperAdmin(browser)
-            login_browser.login_by_super_admin()
 
         with allure.step("Создание проекта"):
             project_creation_browser = ProjectCreationPage(browser)
@@ -39,10 +34,10 @@ class TestProjectE2E:
     @allure.suite("Управление проектами")
     @allure.sub_suite("Удаление проекта")
     @allure.title("Удаление проекта под Супер Администратором")
-    @allure.description("Авторизация Супер Администратором, создание проекта и его удаление")
+    @allure.description("Авторизация Администратором, создание проекта и его удаление")
     @pytest.mark.projects
     @pytest.mark.ui
-    def test_e2e_delete_project(self, browser, super_admin):
+    def test_e2e_delete_project(self, browser, super_admin, login):
         with allure.step('Подготовка данных для создания проекта'):
             project_data_1 = ProjectData.create_project_data()
 
@@ -52,10 +47,6 @@ class TestProjectE2E:
             created_project_model = ProjectResponseModel.model_validate_json(created_project_response)
             assert created_project_model.id == project_data_1.id, \
                 f"Ожидался project_id= {project_data_1.id}, но был получен {created_project_model.id}"
-
-        with allure.step("Авторизация под Супер Администратором"):
-            login_browser = AuthLoginBySuperAdmin(browser)
-            login_browser.login_by_super_admin()
 
         with allure.step("Удаление проекта"):
             project_edit_page_browser = ProjectEditPage(browser)

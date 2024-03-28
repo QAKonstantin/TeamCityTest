@@ -130,6 +130,6 @@ dmypy.json
 .idea/
 
 #reports
-allure-results/*
+*allure-results/*
 logs/*
 trace.zip

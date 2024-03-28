@@ -3,7 +3,6 @@ import pytest
 
 from data.build_conf_data import BuildConfResponseModel, BuildConfData
 from data.project_data import ProjectResponseModel
-from pages.auth_page import AuthLoginBySuperAdmin
 from pages.create_build_conf_page import BuildConfCreationPage
 from pages.edit_build_conf_page import EditBuildPage
 
@@ -18,7 +17,8 @@ class TestBuildConfE2E:
         "Авторизация Супер Администратором, создание проекта, билд конфигурации и шага в командной строке")
     @pytest.mark.build_conf
     @pytest.mark.ui
-    def test_e2e_create_build_conf(self, project_data, build_conf_data, random_description, browser, super_admin):
+    def test_e2e_create_build_conf(self, project_data, build_conf_data, random_description, browser, super_admin,
+                                   login):
         with allure.step('Подготовка данных для создания проекта и билд конфигурации'):
             project_data_1 = project_data()
             build_conf_data_1 = build_conf_data(project_data_1.id)
@@ -30,10 +30,6 @@ class TestBuildConfE2E:
             created_project_model = ProjectResponseModel.model_validate_json(created_project_response)
             assert created_project_model.id == project_data_1.id, \
                 f"Ожидался project_id= {project_data_1.id}, но был получен {created_project_model.id}"
-
-        with allure.step("Авторизация под Супер Администратором"):
-            login_browser = AuthLoginBySuperAdmin(browser)
-            login_browser.login_by_super_admin()
 
         with allure.step("Создание билд конфигурации"):
             build_conf_creation_browser = BuildConfCreationPage(browser, project_data_1.id)
@@ -62,7 +58,7 @@ class TestBuildConfE2E:
     @allure.description("Авторизация Супер Администратором, создание проекта, билда и удаление билда")
     @pytest.mark.build_conf
     @pytest.mark.ui
-    def test_e2e_delete_build_conf(self, project_data, browser, super_admin):
+    def test_e2e_delete_build_conf(self, project_data, browser, super_admin, login):
         with allure.step('Подготовка данных для создания проекта и билд конфигурации'):
             project_data_1 = project_data()
             build_conf_data_1 = BuildConfData.create_build_conf_data(project_data_1.id)
@@ -81,10 +77,6 @@ class TestBuildConfE2E:
             with pytest.assume:
                 assert build_conf_model.id == build_conf_data_1.id, \
                     f"Ожидался build_conf_id={build_conf_data_1.id}, но был получен {build_conf_model.id}"
-
-        with allure.step("Авторизация под Супер Администратором"):
-            login_browser = AuthLoginBySuperAdmin(browser)
-            login_browser.login_by_super_admin()
 
         with allure.step("Удаление билд конфигурации"):
             build_conf_edit_page_browser = EditBuildPage(browser)

@@ -3,7 +3,6 @@ import pytest
 
 from data.build_conf_data import BuildConfResponseModel
 from data.project_data import ProjectResponseModel
-from pages.auth_page import AuthLoginBySuperAdmin
 from pages.build_conf_page import RunBuildPage
 
 
@@ -14,10 +13,10 @@ class TestBuildE2E:
     @allure.sub_suite("Запуск билда")
     @allure.title("Cоздание проекта, билд конфигурации, шага и запуск билда")
     @allure.description(
-        "Авторизация Супер Администратором, создание проекта, билд конфигурации, шага в командной строке и запуск билда")
+        "Авторизация Администратором, создание проекта, билд конфигурации, шага в командной строке и запуск билда")
     @pytest.mark.build_run
     @pytest.mark.ui
-    def test_e2e_run_build(self, project_data, build_conf_data, random_description, browser, super_admin):
+    def test_e2e_run_build(self, project_data, build_conf_data, random_description, browser, super_admin, login):
         with allure.step('Подготовка данных для создания проекта и билд конфигурации'):
             project_data_1 = project_data()
             build_conf_data_1 = build_conf_data(project_data_1.id)
@@ -36,10 +35,6 @@ class TestBuildE2E:
             with pytest.assume:
                 assert build_conf_model.id == build_conf_data_1.id, \
                     f"Ожидался build_conf_id={build_conf_data_1.id}, но был получен {build_conf_model.id}"
-
-        with allure.step("Авторизация под Супер Администратором"):
-            login_browser = AuthLoginBySuperAdmin(browser)
-            login_browser.login_by_super_admin()
 
         with allure.step("Запуск билда"):
             run_build_browser = RunBuildPage(browser, build_conf_data_1.id)

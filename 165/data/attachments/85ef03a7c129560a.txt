@@ -1,0 +1,90 @@
+2024-03-28 15:25:09 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::TestBuildConfE2E::test_e2e_create_build_conf[chromium] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjY1MzMyMTY2NzQ2NzU1Mjk1NDY=' 
+-d ''
+2024-03-28 15:25:11 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::TestBuildConfE2E::test_e2e_create_build_conf[chromium] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:f97fd2f9-280e-4f0e-af81-d4662afaac5f'
+-H 'Cookie:RecentLogin=; TCSESSIONID=E9AB21BFEF6D6D1678EF182C18B7F7BC'
+-H 'Content-Length:111'
+-H 'Authorization:Basic OjY1MzMyMTY2NzQ2NzU1Mjk1NDY=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "town", "id": "EwBpgJFRbVJ", "copyAllAssociatedSettings": true}'
+2024-03-28 15:25:22 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::TestBuildConfE2E::test_e2e_create_build_conf[chromium] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:f97fd2f9-280e-4f0e-af81-d4662afaac5f'
+-H 'Cookie:TCSESSIONID=E9AB21BFEF6D6D1678EF182C18B7F7BC'
+-H 'Authorization:Basic OjY1MzMyMTY2NzQ2NzU1Mjk1NDY=' 
+-d '' 
+ 
+
+2024-03-28 15:25:22 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::TestBuildConfE2E::test_e2e_create_build_conf[chromium] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/buildTypes/id:agTz4HBc0bS' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:f97fd2f9-280e-4f0e-af81-d4662afaac5f'
+-H 'Cookie:TCSESSIONID=E9AB21BFEF6D6D1678EF182C18B7F7BC'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjY1MzMyMTY2NzQ2NzU1Mjk1NDY=' 
+-d '' 
+ 
+
+2024-03-28 15:25:22 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No build type nor template is found by id 'agTz4HBc0bS'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m
+2024-03-28 15:25:22 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::TestBuildConfE2E::test_e2e_create_build_conf[chromium] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:f97fd2f9-280e-4f0e-af81-d4662afaac5f'
+-H 'Cookie:TCSESSIONID=E9AB21BFEF6D6D1678EF182C18B7F7BC'
+-H 'Authorization:Basic OjY1MzMyMTY2NzQ2NzU1Mjk1NDY=' 
+-d '' 
+ 
+
+2024-03-28 15:25:22 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::TestBuildConfE2E::test_e2e_create_build_conf[chromium] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:EwBpgJFRbVJ' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:f97fd2f9-280e-4f0e-af81-d4662afaac5f'
+-H 'Cookie:TCSESSIONID=E9AB21BFEF6D6D1678EF182C18B7F7BC'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjY1MzMyMTY2NzQ2NzU1Mjk1NDY=' 
+-d '' 
+ 
+
+2024-03-28 15:25:22 INFO [32mpytest tests/frontend/test_e2e_build_conf.py::TestBuildConfE2E::test_e2e_create_build_conf[chromium] (teardown)[0m
+curl - X GET 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:f97fd2f9-280e-4f0e-af81-d4662afaac5f'
+-H 'Cookie:TCSESSIONID=E9AB21BFEF6D6D1678EF182C18B7F7BC'
+-H 'Authorization:Basic OjY1MzMyMTY2NzQ2NzU1Mjk1NDY=' 
+-d ''

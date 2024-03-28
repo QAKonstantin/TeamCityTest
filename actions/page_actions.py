@@ -15,7 +15,7 @@ class PageAction:
     def contain_uri(self, uri: str, timeout: int = 30000):
         try:
             with allure.step(f"Проверка URL: ожидаемый URL - {uri}"):
-                expect(self.page).to_have_url(f"**{uri}**", timeout=timeout)
+                self.page.wait_for_url(f"**{uri}**", timeout=timeout)
         except TimeoutError:
             self.allure_attach_screenshot()
             raise AssertionError(f'URL {self.page.url} должен содержать {uri}')

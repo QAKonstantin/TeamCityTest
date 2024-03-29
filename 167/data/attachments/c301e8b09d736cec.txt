@@ -1,0 +1,59 @@
+2024-03-29 06:50:48 INFO [32mpytest tests/backend/test_create_build_conf.py::TestBuildConfCreate::test_create_build_conf_with_empty_attributes[id] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjIxNTU3NzAzNDg2OTUyMDUyNjI=' 
+-d ''
+2024-03-29 06:50:48 INFO [32mpytest tests/backend/test_create_build_conf.py::TestBuildConfCreate::test_create_build_conf_with_empty_attributes[id] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:2a17a3d8-b1c0-4f3f-9571-9b24ecc9ac11'
+-H 'Cookie:RecentLogin=; TCSESSIONID=9A40B7FA778F3E88763AFDC417B2C4AA'
+-H 'Content-Length:113'
+-H 'Authorization:Basic OjIxNTU3NzAzNDg2OTUyMDUyNjI=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "recent", "id": "oueJhXITA15", "copyAllAssociatedSettings": true}' 
+ 
+
+2024-03-29 06:50:48 INFO 	RESPONSE:
+STATUS_CODE: [31m400[0m
+DATA: [31mResponding with error, status code: 400 (Bad Request).
+Details: jetbrains.buildServer.serverSide.DuplicateProjectNameException: Project with name "recent" already exists
+Error occurred while processing this request.[0m
+2024-03-29 06:50:49 INFO [32mpytest tests/backend/test_create_build_conf.py::TestBuildConfCreate::test_create_build_conf_with_empty_attributes[id] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html?csrf' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:2a17a3d8-b1c0-4f3f-9571-9b24ecc9ac11'
+-H 'Cookie:TCSESSIONID=9A40B7FA778F3E88763AFDC417B2C4AA'
+-H 'Authorization:Basic OjIxNTU3NzAzNDg2OTUyMDUyNjI=' 
+-d '' 
+ 
+
+2024-03-29 06:50:49 INFO [32mpytest tests/backend/test_create_build_conf.py::TestBuildConfCreate::test_create_build_conf_with_empty_attributes[id] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:oueJhXITA15' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:2a17a3d8-b1c0-4f3f-9571-9b24ecc9ac11'
+-H 'Cookie:TCSESSIONID=9A40B7FA778F3E88763AFDC417B2C4AA'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjIxNTU3NzAzNDg2OTUyMDUyNjI=' 
+-d '' 
+ 
+
+2024-03-29 06:50:49 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by locator 'count:1,id:oueJhXITA15'. Project cannot be found by external id 'oueJhXITA15'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m

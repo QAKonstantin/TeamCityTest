@@ -107,6 +107,7 @@ class PageAction:
     def get_element(self, selector):
         try:
             with allure.step(f"Получить элемент по локатору: {selector}"):
+                self.wait_for_selector(selector)
                 return self.page.locator(selector)
         except TimeoutError:
             self.allure_attach_screenshot()

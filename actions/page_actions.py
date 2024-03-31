@@ -48,7 +48,7 @@ class PageAction:
             attachment_type=screenshot_type
         )
 
-    @allure.step(f"Закрыть вкладку")
+    @allure.step("Закрыть вкладку")
     def close_tab(self, n=-1):
         """
         :param n: Номер вкладки, которую необходимо закрыть. По умолчанию закрывается последняя вкладка

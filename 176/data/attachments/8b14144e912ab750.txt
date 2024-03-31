@@ -1,0 +1,12 @@
+get_build_data: 
+ + {'count': 1, 'build': [{'id': 1, 'buildTypeId': 'Y88UsaxBTSi', 'number': '1', 'status': 'SUCCESS', 'state': 'running', 'percentageComplete': -1, 'href': '/app/rest/builds/id:1', 'webUrl': 'http://localhost:8111/buildConfiguration/Y88UsaxBTSi/1'}], 'href': '/app/rest/builds?locator=id:1'}
+build_state_new:  running
+get_build_data: 
+ + {'count': 1, 'build': [{'id': 1, 'buildTypeId': 'Y88UsaxBTSi', 'number': '1', 'status': 'SUCCESS', 'state': 'running', 'percentageComplete': -1, 'href': '/app/rest/builds/id:1', 'webUrl': 'http://localhost:8111/buildConfiguration/Y88UsaxBTSi/1'}], 'href': '/app/rest/builds?locator=id:1'}
+build_state_new:  running
+get_build_data: 
+ + {'count': 1, 'build': [{'id': 1, 'buildTypeId': 'Y88UsaxBTSi', 'number': '1', 'status': 'SUCCESS', 'state': 'running', 'percentageComplete': -1, 'href': '/app/rest/builds/id:1', 'webUrl': 'http://localhost:8111/buildConfiguration/Y88UsaxBTSi/1'}], 'href': '/app/rest/builds?locator=id:1'}
+build_state_new:  running
+get_build_data: 
+ + {'count': 1, 'build': [{'id': 1, 'buildTypeId': 'Y88UsaxBTSi', 'number': '1', 'status': 'SUCCESS', 'state': 'finished', 'href': '/app/rest/builds/id:1', 'webUrl': 'http://localhost:8111/buildConfiguration/Y88UsaxBTSi/1', 'finishOnAgentDate': '20240331T200020+0000'}], 'href': '/app/rest/builds?locator=id:1'}
+build_state_new:  finished

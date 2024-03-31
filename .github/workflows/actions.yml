@@ -7,6 +7,7 @@ on:
     branches: [ "main", "final-version", "Configure-CI" ]
   workflow_dispatch:
 
+
 jobs:
   run-tests:
     runs-on: ubuntu-latest
@@ -111,7 +112,7 @@ jobs:
         with:
           allure_results: allure-results
           allure_history: allure-history
-          keep_reports: 14
+          keep_reports: 3
 
       - name: Deploy report to Github Pages
         if: always()

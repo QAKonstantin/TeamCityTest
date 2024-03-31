@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python 3.10
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.11"
       - name: Install flake8
         run: pip install flake8
       - name: Run flake8
@@ -130,19 +130,45 @@ jobs:
 
       - name: Deploy report to Github Pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v2
+        uses: peaceiris/actions-gh-pages@v3
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
+  generate-openapi-spec:
+    needs: run-tests
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 7.0.*
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Install tools
+        run: dotnet tool restore
+      - name: Generate openapi.json
+        run: dotnet nswag run nswag.json
+      - name: Upload openapi.json
+        uses: actions/upload-artifact@v4
+        with:
+          name: spec-file
+          path: openapi.json
+  deploy:
+    needs: generate-openapi-spec
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download openapi.json
+        uses: actions/download-artifact@v4
+        with:
+          name: spec-file
       - name: Generate Swagger UI
-        uses: Legion2/swagger-ui-action@v1
+        uses: Legion2/swagger-ui-action@v2
         with:
           output: swagger-ui
           spec-file: openapi.json
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

@@ -15,7 +15,7 @@ class FirstPageContent(BasePage):
             self.actions.click_button(self.proceed_button_selector)
 
     def restore(self):
-        with allure.step(f"Нажать кнопку restore"):
+        with allure.step("Нажать кнопку restore"):
             self.actions.click_button(self.restore_button_selector)
 
 

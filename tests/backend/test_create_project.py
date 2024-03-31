@@ -64,7 +64,7 @@ class TestProjectCreate:
     @allure.sub_suite("Создание проекта")
     @allure.sub_suite("Негативные сценарии")
     @allure.title('Проверка отсутствия прав на создание проекта')
-    @allure.description(f'Проверяется невозможность создания проекта под определенными ролями')
+    @allure.description('Проверяется невозможность создания проекта под определенными ролями')
     @pytest.mark.projects
     def test_negative_creating_project_by_roles(self, user_create, role):
         with allure.step('Подготовка данных для создания проекта'):
@@ -128,7 +128,6 @@ class TestProjectCreate:
         with allure.step('Подготовка данных для создания проекта'):
             project_data_1 = dict(ProjectData.create_project_data())
             project_data_1[attribute] = value
-
 
         with (allure.step(f'Отправка запроса на создание проекта с пустым {attribute}')):
             created_project_response = super_admin.api_manager.project_api.create_project(

@@ -13,7 +13,6 @@ from pages.auth_page import AuthLoginForm, AuthLoginBySuperAdmin
 from resources.user_creds import SuperAdminCreds
 from utils.browser_setup import BrowserSetup
 from utils.data_generator import DataGenerator
-from components.header import Header
 
 
 @pytest.fixture(params=BROWSERS)

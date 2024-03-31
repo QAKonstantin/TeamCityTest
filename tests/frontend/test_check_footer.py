@@ -28,12 +28,12 @@ class CheckFooterTest:
             main_page = AuthLoginForm(browser)
             main_page.login(*role_user.creds)
 
-        with allure.step(f"Проверка ссылок в футере"):
+        with allure.step("Проверка ссылок в футере"):
             main_page.footer.go_to_about_teamcity(close_tab=True)
             main_page.footer.go_to_license_agreement(close_tab=True)
 
-        with allure.step(f"Проверка версии системы"):
+        with allure.step("Проверка версии системы"):
             main_page.footer.check_version()
 
-        with allure.step(f"Проверка копирайта"):
+        with allure.step("Проверка копирайта"):
             main_page.footer.check_copyright()

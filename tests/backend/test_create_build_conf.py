@@ -67,7 +67,7 @@ class TestBuildConfCreate:
     @allure.sub_suite("Создание билд конфигурации")
     @allure.sub_suite("Негативные сценарии")
     @allure.title('Проверка отсутствия прав на создание билд конфигурации')
-    @allure.description(f'Проверяется невозможность создания билд конфигурации под определёнными ролями')
+    @allure.description('Проверяется невозможность создания билд конфигурации под определёнными ролями')
     @pytest.mark.build_conf
     def test_negative_creating_build_conf(self, project_data, build_conf_data, super_admin, user_create, role):
         with allure.step('Подготовка данных для создания проекта и билд конфигурации'):
@@ -138,7 +138,8 @@ class TestBuildConfCreate:
     @allure.sub_suite("Негативные сценарии")
     @allure.title('Невозможность создания билд конфигурации с одинаковыми данными')
     @allure.description(
-        'Проверяется валидация DuplicateExternalIdException при повторном создании билд конфигурации с существующими данными')
+        'Проверяется валидация DuplicateExternalIdException при повторном создании билд конфигурации с существующими '
+        'данными')
     @pytest.mark.build_conf
     def test_create_existing_build_conf(self, project_data, build_conf_data, super_admin):
 

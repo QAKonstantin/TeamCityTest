@@ -111,7 +111,7 @@ jobs:
         with:
           allure_results: allure-results
           allure_history: allure-history
-          keep_reports: 7
+          keep_reports: 5
 
       - name: Deploy report to Github Pages
         if: always()

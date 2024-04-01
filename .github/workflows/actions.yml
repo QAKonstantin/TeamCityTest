@@ -110,7 +110,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --numprocesses auto -m additional -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
+          pytest --numprocesses 3 -m additional -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
       - name: Get Allure history
         uses: actions/checkout@v4
@@ -127,14 +127,6 @@ jobs:
           allure_results: allure-results
           allure_history: allure-history
           keep_reports: 14
-
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3.9.3
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
 
   generate-openapi-spec:
     needs: run-tests

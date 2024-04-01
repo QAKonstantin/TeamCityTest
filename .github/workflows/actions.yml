@@ -133,22 +133,14 @@ jobs:
           allure_history: allure-history
           keep_reports: 14
 
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
-
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1
         with:
-          output: swagger-ui
+          output: allure-history/swagger-ui
           spec-file: ${{ github.workspace }}/swagger-coverage-config-teamcity.json
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: swagger-ui
+          publish_dir: allure-history/swagger-ui

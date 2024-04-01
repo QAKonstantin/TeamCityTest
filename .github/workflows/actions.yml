@@ -136,15 +136,10 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-  swagger:
-    needs: run-tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1.2.0
+        runs:
+          using: 'node20'
         with:
           output: swagger-ui
           spec-file: ${{ github.workspace }}/swagger-coverage-config-teamcity.json

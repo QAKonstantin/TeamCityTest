@@ -27,6 +27,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Use Node.js 20.x
+          uses: actions/setup-node@v3
+          with:
+            node-version: 20.x
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -138,8 +143,6 @@ jobs:
 
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1.2.0
-        runs:
-          using: 'node20'
         with:
           output: swagger-ui
           spec-file: ${{ github.workspace }}/swagger-coverage-config-teamcity.json

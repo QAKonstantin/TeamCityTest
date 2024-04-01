@@ -145,11 +145,10 @@ jobs:
         with:
           output: swagger-ui
           spec-file: swagger-coverage-config-teamcity.json
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           PUBLISH_DIR: swagger-ui
           PUBLISH_BRANCH: gh-pages

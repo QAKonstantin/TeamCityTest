@@ -34,10 +34,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Use Node.js 20.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
 
       - name: Setup Docker
         uses: docker/setup-buildx-action@v3
@@ -137,12 +133,17 @@ jobs:
           allure_history: allure-history
           keep_reports: 14
 
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1
         with:
-          output: allure-history/swagger-ui
+          output: allure-history
           spec-file: ${{ github.workspace }}/swagger-coverage-config-teamcity.json
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          version: '2.0'
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

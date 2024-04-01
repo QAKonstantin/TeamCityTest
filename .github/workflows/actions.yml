@@ -141,7 +141,7 @@ jobs:
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1
         with:
-          output: allure-history
+          output: swagger-ui
           spec-file: ${{ github.workspace }}/swagger-coverage-config-teamcity.json
           version: '2.0'
 
@@ -150,4 +150,3 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          publish_dir: allure-history

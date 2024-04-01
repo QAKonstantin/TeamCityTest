@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Apr 01 11:34:25 GMT 2024","Mon Apr 01 11:35:59 GMT 2024","94525","Сетап для первого запуска TeamCity","test_set_up","","","","Сетап","Сетап для проверки правильности настройки тестовой среды:принятие пользовательского соглашения,инициализация БД,создание пользователя с ролью Администратор"

@@ -15,7 +15,6 @@ class TestProjectE2E:
     @allure.description("Авторизация Администратором и создание проекта")
     @pytest.mark.projects
     @pytest.mark.ui
-    @pytest.mark.additional
     def test_e2e_create_project(self, project_data, random_description, browser, super_admin, login):
         project_data_1 = project_data()
 

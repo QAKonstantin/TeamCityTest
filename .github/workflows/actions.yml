@@ -110,7 +110,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --numprocesses 3 -m additional -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
+          pytest --numprocesses auto -m api -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
       - name: Get Allure history
         uses: actions/checkout@v4
@@ -140,11 +140,14 @@ jobs:
     needs: run-tests
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Generate Swagger UI
-        uses: Legion2/swagger-ui-action@v1
+        uses: Legion2/swagger-ui-action@v1.2.0
         with:
           output: swagger-ui
-          spec-file: swagger-coverage-config-teamcity.json
+          spec-file: ${{ github.workspace }}/swagger-coverage-config-teamcity.json
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v2

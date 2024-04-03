@@ -144,12 +144,13 @@ jobs:
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1.2.0
         with:
-          output: swagger-ui
           spec-file: swagger-coverage-config-teamcity.json
+          output: swagger-ui
           version: '2.0'
 
       - name: Deploy swagger to GitHub Pages
         uses: peaceiris/actions-gh-pages@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: swagger-ui

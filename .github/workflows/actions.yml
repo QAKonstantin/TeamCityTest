@@ -141,11 +141,14 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
+      - name: Create folder for swagger
+        run: mkdir swagger-ui
+
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1.2.0
         with:
           output: swagger-ui
-          spec-file: ${{ github.workspace }}/swagger-coverage-config-teamcity.json
+          spec-file: swagger-ui/swagger-coverage-config-teamcity.json
           version: '2.0'
 
       - name: Deploy swagger to GitHub Pages

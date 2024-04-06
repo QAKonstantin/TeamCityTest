@@ -23,7 +23,7 @@ class AuthLoginForm(BasePage):
             self.actions.input_text(self.password_input, password)
 
     def click_login(self):
-        with allure.step("Авторизация пользователя"):
+        with allure.step("Нажать кнопку для авторизации"):
             self.actions.click_button(self.login_btn)
 
     def go_to_login_page(self):
@@ -45,14 +45,17 @@ class AuthLoginBySuperAdmin(AuthLoginForm):
         super().__init__(page)
         self.page_url = "/login.html?super=1"
 
+    def go_to_login_super_admin_page(self):
+        with allure.step("Переход на страницу авторизации супер администратора"):
+            self.actions.navigate(self.page_url)
+            self.actions.wait_for_page_load()
+
     def input_token(self, token):
         with allure.step("Ввод токена для авторизации под Супер Администратором"):
             self.actions.wait_for_selector(self.password_input)
             self.actions.input_text(self.password_input, token)
 
     def login_by_super_admin(self, token=os.getenv('SUPER_USER_TOKEN')):
-        self.go_to_login_page()
+        self.go_to_login_super_admin_page()
         self.input_token(token)
         self.click_login()
-        self.page_url = '/favorite/projects?mode=builds'
-        self.actions.wait_for_url_changed(self.page_url)

@@ -106,7 +106,7 @@ celerybeat.pid
 .venv
 env/
 venv/
-ENV/
+#ENV/
 env.bak/
 venv.bak/
 
@@ -130,6 +130,6 @@ dmypy.json
 .idea/
 
 #reports
-allure-results/*
+*allure-results/*
 logs/*
 trace.zip

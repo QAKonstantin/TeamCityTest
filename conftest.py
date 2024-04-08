@@ -35,7 +35,7 @@ def browser_for_setup():
 def setup_swagger_coverage(request):
     reporter = CoverageReporter(api_name="teamcity", host=BASE_URL)
     reporter.cleanup_input_files()
-    if request.config.args[0] != 'test_set_up.py::test_setup':
+    if request.config.args[0] != 'tests/frontend/test_set_up.py':
         reporter.setup("/app/rest/swagger.json")
     yield
     reporter.generate_report()

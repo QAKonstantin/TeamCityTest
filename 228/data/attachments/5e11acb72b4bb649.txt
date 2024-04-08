@@ -1,0 +1,57 @@
+2024-04-08 11:51:38 INFO [32mpytest tests/backend/test_create_build_conf.py::TestBuildConfCreate::test_create_build_conf_with_empty_attributes[name] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjIwOTc4MTIxNTUzNzUzNjQ0ODc=' 
+-d ''
+2024-04-08 11:51:38 INFO [32mpytest tests/backend/test_create_build_conf.py::TestBuildConfCreate::test_create_build_conf_with_empty_attributes[name] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:RecentLogin=; TCSESSIONID=1C42101136628B7D0781418744AC8853'
+-H 'Content-Length:117'
+-H 'Authorization:Basic OjIwOTc4MTIxNTUzNzUzNjQ0ODc=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "government", "id": "GHTbkURFS6W", "copyAllAssociatedSettings": true}' 
+ 
+
+2024-04-08 11:51:38 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value 1bfb5b17-c1a8-43d8-afe6-39cd3a8f0a89
+[0m
+2024-04-08 11:51:38 INFO [32mpytest tests/backend/test_create_build_conf.py::TestBuildConfCreate::test_create_build_conf_with_empty_attributes[name] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:TCSESSIONID=1C42101136628B7D0781418744AC8853'
+-H 'Authorization:Basic OjIwOTc4MTIxNTUzNzUzNjQ0ODc=' 
+-d '' 
+ 
+
+2024-04-08 11:51:38 INFO [32mpytest tests/backend/test_create_build_conf.py::TestBuildConfCreate::test_create_build_conf_with_empty_attributes[name] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:GHTbkURFS6W' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:TCSESSIONID=1C42101136628B7D0781418744AC8853'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjIwOTc4MTIxNTUzNzUzNjQ0ODc=' 
+-d '' 
+ 
+
+2024-04-08 11:51:38 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value 1bfb5b17-c1a8-43d8-afe6-39cd3a8f0a89
+[0m

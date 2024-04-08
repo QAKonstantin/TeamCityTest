@@ -2,7 +2,7 @@ import logging
 import os
 from http import HTTPStatus
 from requests import Response
-from swagger_coverage_py.listener import CoverageListener
+from utils.listener import CoverageListener
 
 from enums.hosts import BASE_URL
 

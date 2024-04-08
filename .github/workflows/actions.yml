@@ -141,18 +141,12 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: Generate Swagger UI
-        uses: Legion2/swagger-ui-action@v1
-        with:
-          output: swagger-coverage-output
-          spec-file: swagger-coverage-config-teamcity.json
-
       - name: Deploy Swagger to GitHub Pages
         uses: peaceiris/actions-gh-pages@v2
-        with:
+        env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: swagger-coverage-report-teamcity.html
+          PUBLISH_DIR: swagger-coverage-output
 
       - name: Check structure repository
         run: |

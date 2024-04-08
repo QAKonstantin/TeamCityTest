@@ -145,18 +145,14 @@ jobs:
         if: always()
         uses: peaceiris/actions-gh-pages@v2
         with:
-          KEEP_FILES: true
+          keepFiles: true
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
       - name: Upload Swagger Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: swagger-report
           path: swagger-coverage-report-teamcity.html
-
-      - name: Check structure repository
-        run: |
-          ls swagger-coverage-output/localhost:8111

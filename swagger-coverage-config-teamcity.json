@@ -7,6 +7,12 @@
       ],
       "filter": []
     },
+    "paths": {
+      "enable": true,
+      "ignore": [
+        "/authenticationTest.html?csrf"
+      ]
+    },
     "only-declared-status": {
       "enable": false
     },

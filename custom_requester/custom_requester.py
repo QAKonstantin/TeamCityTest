@@ -1,6 +1,8 @@
 import logging
 import os
 from http import HTTPStatus
+from requests import Response
+from swagger_coverage_py.listener import CoverageListener
 
 from enums.hosts import BASE_URL
 
@@ -25,8 +27,17 @@ class CustomRequester:
         :param need_verify_status: Флаг для проверки статус кода в ответе. По умолчанию = True
         :return: Возвращает объект ответа
         """
-        url = f"{self.base_url}{endpoint}"
-        response = self.session.request(method=method, url=url, json=data)
+        # url = f"{self.base_url}{endpoint}"
+        # response = self.session.request(method=method, url=url, json=data)
+        kwargs = {"json": data}
+        response: Response = CoverageListener(
+            method=method,
+            base_url=self.base_url,
+            raw_path=endpoint,
+            uri_params={},
+            session=self.session,
+            **kwargs
+        ).response
         if need_logging:
             self.log_request_and_response(response, expected_status, need_verify_status)
         if need_verify_status:

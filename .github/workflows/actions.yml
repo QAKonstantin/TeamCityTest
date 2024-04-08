@@ -141,17 +141,7 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: Deploy Swagger report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        with:
-          keepFiles: true
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
-
-      - name: Upload Swagger Artifact
+      - name: Upload Swagger Report
         uses: actions/upload-artifact@v4
         with:
           name: swagger-report

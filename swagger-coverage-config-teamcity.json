@@ -16,7 +16,7 @@
   },
   "writers": {
     "html": {
-      "locale": "en",
+      "locale": "ru",
       "filename": "swagger-coverage-report-teamcity.html"
     }
   }

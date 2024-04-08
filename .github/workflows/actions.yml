@@ -138,7 +138,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          output: .
+          output: swagger-ui
           spec-file: swagger-coverage-config-teamcity.json
 
       - name: Deploy Allure report to Github Pages

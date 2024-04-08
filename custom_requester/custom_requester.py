@@ -32,7 +32,7 @@ class CustomRequester:
             response = self.session.request(method=method, url=url, json=data)
         else:
             kwargs = {"json": data}
-            response: Response = CoverageListener(
+            response = CoverageListener(
                 method=method,
                 base_url=self.base_url,
                 raw_path=endpoint,

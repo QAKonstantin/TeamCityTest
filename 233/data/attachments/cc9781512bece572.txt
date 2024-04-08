@@ -1,0 +1,185 @@
+2024-04-08 12:44:37 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] [0m
+curl - X POST 'http://localhost:8111/app/rest/users' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:82e7dbf9-0e31-4fd1-9733-bbc63a7bcd77'
+-H 'Cookie:RecentLogin=; TCSESSIONID=EF898F7A100F17966E6078284EDD1F51'
+-H 'Content-Length:146'
+-H 'Authorization:Basic OjIwODYzMDkxMzc0ODU0ODE0NzM=' 
+-d '{"username": "fill", "password": "ortpt09PS7S", "email": "kevinpowell@example.org", "roles": {"role": [{"roleId": "SYSTEM_ADMIN", "scope": "g"}]}}' 
+ 
+
+2024-04-08 12:44:37 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:82e7dbf9-0e31-4fd1-9733-bbc63a7bcd77'
+-H 'Cookie:TCSESSIONID=EF898F7A100F17966E6078284EDD1F51'
+-H 'Content-Length:112'
+-H 'Authorization:Basic OjIwODYzMDkxMzc0ODU0ODE0NzM=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "staff", "id": "adapiwllbmX", "copyAllAssociatedSettings": true}' 
+ 
+
+2024-04-08 12:44:38 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] [0m
+curl - X POST 'http://localhost:8111/app/rest/buildTypes' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:82e7dbf9-0e31-4fd1-9733-bbc63a7bcd77'
+-H 'Cookie:TCSESSIONID=EF898F7A100F17966E6078284EDD1F51'
+-H 'Content-Length:342'
+-H 'Authorization:Basic OjIwODYzMDkxMzc0ODU0ODE0NzM=' 
+-d '{"id": "jEEtmOeFGeU", "name": "different", "project": {"id": "adapiwllbmX"}, "steps": {"step": [{"name": "myCommandLineStep", "type": "simpleRunner", "properties": {"property": [{"name": "script.content", "value": "echo 'Hello World!'"}, {"name": "teamcity.step.mode", "value": "default"}, {"name": "use.custom.script", "value": "true"}]}}]}}' 
+ 
+
+2024-04-08 12:44:39 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] [0m
+curl - X POST 'http://localhost:8111/app/rest/buildQueue' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:43abe99b-1d1e-4b17-8af4-ec7d4ee246d4'
+-H 'Cookie:RecentLogin=; TCSESSIONID=00F12A60E6CE4BA58679AEFB55C927BE'
+-H 'Content-Length:36'
+-H 'Authorization:Basic ZmlsbDpvcnRwdDA5UFM3Uw==' 
+-d '{"buildType": {"id": "jEEtmOeFGeU"}}' 
+ 
+
+2024-04-08 12:44:39 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] [0m
+curl - X GET 'http://localhost:8111/app/rest/builds?locator=id:1' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:43abe99b-1d1e-4b17-8af4-ec7d4ee246d4'
+-H 'Cookie:TCSESSIONID=00F12A60E6CE4BA58679AEFB55C927BE'
+-H 'Authorization:Basic ZmlsbDpvcnRwdDA5UFM3Uw==' 
+-d '' 
+ 
+
+2024-04-08 12:44:41 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] [0m
+curl - X GET 'http://localhost:8111/app/rest/builds?locator=id:1' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:43abe99b-1d1e-4b17-8af4-ec7d4ee246d4'
+-H 'Cookie:TCSESSIONID=00F12A60E6CE4BA58679AEFB55C927BE'
+-H 'Authorization:Basic ZmlsbDpvcnRwdDA5UFM3Uw==' 
+-d '' 
+ 
+
+2024-04-08 12:44:42 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] [0m
+curl - X GET 'http://localhost:8111/app/rest/builds?locator=id:1' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:43abe99b-1d1e-4b17-8af4-ec7d4ee246d4'
+-H 'Cookie:TCSESSIONID=00F12A60E6CE4BA58679AEFB55C927BE'
+-H 'Authorization:Basic ZmlsbDpvcnRwdDA5UFM3Uw==' 
+-d '' 
+ 
+
+2024-04-08 12:44:43 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] [0m
+curl - X GET 'http://localhost:8111/app/rest/builds?locator=id:1' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:43abe99b-1d1e-4b17-8af4-ec7d4ee246d4'
+-H 'Cookie:TCSESSIONID=00F12A60E6CE4BA58679AEFB55C927BE'
+-H 'Authorization:Basic ZmlsbDpvcnRwdDA5UFM3Uw==' 
+-d '' 
+ 
+
+2024-04-08 12:44:44 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] [0m
+curl - X GET 'http://localhost:8111/app/rest/builds?locator=id:1' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:43abe99b-1d1e-4b17-8af4-ec7d4ee246d4'
+-H 'Cookie:TCSESSIONID=00F12A60E6CE4BA58679AEFB55C927BE'
+-H 'Authorization:Basic ZmlsbDpvcnRwdDA5UFM3Uw==' 
+-d ''
+2024-04-08 12:44:44 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/users/fill' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:82e7dbf9-0e31-4fd1-9733-bbc63a7bcd77'
+-H 'Cookie:TCSESSIONID=EF898F7A100F17966E6078284EDD1F51'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjIwODYzMDkxMzc0ODU0ODE0NzM=' 
+-d '' 
+ 
+
+2024-04-08 12:44:45 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/buildTypes/id:jEEtmOeFGeU' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:82e7dbf9-0e31-4fd1-9733-bbc63a7bcd77'
+-H 'Cookie:TCSESSIONID=EF898F7A100F17966E6078284EDD1F51'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjIwODYzMDkxMzc0ODU0ODE0NzM=' 
+-d '' 
+ 
+
+2024-04-08 12:44:45 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] (teardown)[0m
+curl - X GET 'http://localhost:8111/app/rest/buildTypes' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:82e7dbf9-0e31-4fd1-9733-bbc63a7bcd77'
+-H 'Cookie:TCSESSIONID=EF898F7A100F17966E6078284EDD1F51'
+-H 'Authorization:Basic OjIwODYzMDkxMzc0ODU0ODE0NzM=' 
+-d '' 
+ 
+
+2024-04-08 12:44:45 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:adapiwllbmX' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:82e7dbf9-0e31-4fd1-9733-bbc63a7bcd77'
+-H 'Cookie:TCSESSIONID=EF898F7A100F17966E6078284EDD1F51'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjIwODYzMDkxMzc0ODU0ODE0NzM=' 
+-d '' 
+ 
+
+2024-04-08 12:44:45 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] (teardown)[0m
+curl - X GET 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:82e7dbf9-0e31-4fd1-9733-bbc63a7bcd77'
+-H 'Cookie:TCSESSIONID=EF898F7A100F17966E6078284EDD1F51'
+-H 'Authorization:Basic OjIwODYzMDkxMzc0ODU0ODE0NzM=' 
+-d ''

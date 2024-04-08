@@ -1,5 +1,3 @@
-import requests
-
 from swagger_coverage_py.configs import IS_DISABLED
 from swagger_coverage_py.request_schema_handler import RequestSchemaHandler
 from swagger_coverage_py.uri import URI
@@ -8,12 +6,12 @@ from swagger_coverage_py.uri import URI
 class CoverageListener:
     def __init__(
             self,
+            session,
             method: str,
             base_url: str,
             raw_path: str,
             uri_params: dict,
             base_path: str = "",
-            session: requests.Session = None,
             **kwargs
     ):
         """Records an HTTP request as a file in swagger format

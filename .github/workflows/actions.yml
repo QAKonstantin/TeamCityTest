@@ -146,3 +146,7 @@ jobs:
         with:
           name: swagger
           path: swagger-coverage-report-teamcity.html
+
+      - name: Check structure repository
+        run: |
+          ls swagger-coverage-output/localhost:8111

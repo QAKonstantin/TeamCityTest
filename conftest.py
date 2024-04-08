@@ -9,6 +9,7 @@ from data.project_data import ProjectData
 from data.user_data import UserData
 from entities.user import User, Role
 from enums.browser import BROWSERS
+from enums.hosts import BASE_URL
 from pages.auth_page import AuthLoginForm, AuthLoginBySuperAdmin
 from resources.user_creds import SuperAdminCreds
 from utils.browser_setup import BrowserSetup
@@ -32,10 +33,10 @@ def browser_for_setup():
 
 @pytest.fixture(scope="session", autouse=True)
 def setup_swagger_coverage():
-    reporter = CoverageReporter(api_name="teamcity", host="http://localhost")
+    reporter = CoverageReporter(api_name="teamcity", host=BASE_URL)
 
     reporter.cleanup_input_files()
-    reporter.setup(":8111/app/rest/swagger.json")
+    reporter.setup("/app/rest/swagger.json")
 
     yield
     reporter.generate_report()

@@ -141,13 +141,12 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: Deploy Swagger to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: swagger-coverage-output
+      - name: Upload Swagger Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: swagger
+          path: swagger-coverage-report-teamcity.html
 
       - name: Check structure repository
         run: |
-          ls
+          cd ./swagger-coverage-output | ls

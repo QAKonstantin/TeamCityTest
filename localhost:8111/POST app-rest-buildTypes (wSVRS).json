@@ -1,0 +1,99 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Recorded Request"
+    },
+    "paths": {
+        "/app/rest/buildTypes": {
+            "POST": {
+                "parameters": [],
+                "responses": {
+                    "404": {}
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "id": "BjSYLx0DVHy",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "name": "quite",
+                                        "type": "string"
+                                    },
+                                    "project": {
+                                        "project": {
+                                            "id": ""
+                                        },
+                                        "type": "object"
+                                    },
+                                    "steps": {
+                                        "steps": {
+                                            "step": [
+                                                {
+                                                    "name": "myCommandLineStep",
+                                                    "type": "simpleRunner",
+                                                    "properties": {
+                                                        "property": [
+                                                            {
+                                                                "name": "script.content",
+                                                                "value": "echo 'Hello World!'"
+                                                            },
+                                                            {
+                                                                "name": "teamcity.step.mode",
+                                                                "value": "default"
+                                                            },
+                                                            {
+                                                                "name": "use.custom.script",
+                                                                "value": "true"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            },
+                            "example": {
+                                "id": "BjSYLx0DVHy",
+                                "name": "quite",
+                                "project": {
+                                    "id": ""
+                                },
+                                "steps": {
+                                    "step": [
+                                        {
+                                            "name": "myCommandLineStep",
+                                            "type": "simpleRunner",
+                                            "properties": {
+                                                "property": [
+                                                    {
+                                                        "name": "script.content",
+                                                        "value": "echo 'Hello World!'"
+                                                    },
+                                                    {
+                                                        "name": "teamcity.step.mode",
+                                                        "value": "default"
+                                                    },
+                                                    {
+                                                        "name": "use.custom.script",
+                                                        "value": "true"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

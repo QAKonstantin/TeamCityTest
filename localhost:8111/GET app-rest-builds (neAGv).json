@@ -1,0 +1,23 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Recorded Request"
+    },
+    "paths": {
+        "/app/rest/builds": {
+            "GET": {
+                "parameters": [
+                    {
+                        "name": "locator",
+                        "in": "query",
+                        "required": false,
+                        "x-example": "id:1"
+                    }
+                ],
+                "responses": {
+                    "200": {}
+                }
+            }
+        }
+    }
+}

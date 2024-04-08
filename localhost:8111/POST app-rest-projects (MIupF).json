@@ -1,0 +1,53 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Recorded Request"
+    },
+    "paths": {
+        "/app/rest/projects": {
+            "POST": {
+                "parameters": [],
+                "responses": {
+                    "200": {}
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "parentProject": {
+                                        "parentProject": {
+                                            "locator": "_Root"
+                                        },
+                                        "type": "object"
+                                    },
+                                    "name": {
+                                        "name": "wear",
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "id": "bzt7UWBChUC",
+                                        "type": "string"
+                                    },
+                                    "copyAllAssociatedSettings": {
+                                        "copyAllAssociatedSettings": true,
+                                        "type": "boolean"
+                                    }
+                                }
+                            },
+                            "example": {
+                                "parentProject": {
+                                    "locator": "_Root"
+                                },
+                                "name": "wear",
+                                "id": "bzt7UWBChUC",
+                                "copyAllAssociatedSettings": true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

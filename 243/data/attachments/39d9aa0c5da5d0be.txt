@@ -1,0 +1,27 @@
+14:59:36 WARN  i.s.v.p.OpenAPIV3Parser - Exception while reading:
+io.swagger.v3.parser.exception.ReadContentException: Unable to read location `swagger-doc-teamcity.json`
+	at io.swagger.v3.parser.OpenAPIV3Parser.readContentFromLocation(OpenAPIV3Parser.java:274)
+	at io.swagger.v3.parser.OpenAPIV3Parser.readLocation(OpenAPIV3Parser.java:89)
+	at io.swagger.parser.OpenAPIParser.readLocation(OpenAPIParser.java:16)
+	at com.github.viclovsky.swagger.coverage.core.generator.Generator.run(Generator.java:41)
+	at com.github.viclovsky.swagger.coverage.CommandLine.run(CommandLine.java:77)
+	at java.base/java.util.Optional.orElseGet(Optional.java:369)
+	at com.github.viclovsky.swagger.coverage.CommandLine.main(CommandLine.java:34)
+Caused by: java.lang.RuntimeException: Could not find swagger-doc-teamcity.json on the classpath
+	at io.swagger.v3.parser.util.ClasspathHelper.loadFileFromClasspath(ClasspathHelper.java:31)
+	at io.swagger.v3.parser.OpenAPIV3Parser.readContentFromLocation(OpenAPIV3Parser.java:265)
+	... 6 common frames omitted
+14:59:36 ERROR i.s.p.SwaggerCompatConverter - failed to read resource listing
+java.lang.RuntimeException: Could not find swagger-doc-teamcity.json on the classpath
+	at io.swagger.parser.util.ClasspathHelper.loadFileFromClasspath(ClasspathHelper.java:31)
+	at io.swagger.parser.SwaggerCompatConverter.readResourceListing(SwaggerCompatConverter.java:206)
+	at io.swagger.parser.SwaggerCompatConverter.read(SwaggerCompatConverter.java:122)
+	at io.swagger.parser.SwaggerCompatConverter.readWithInfo(SwaggerCompatConverter.java:93)
+	at io.swagger.parser.SwaggerParser.readWithInfo(SwaggerParser.java:45)
+	at io.swagger.v3.parser.converter.SwaggerConverter.readLocation(SwaggerConverter.java:90)
+	at io.swagger.parser.OpenAPIParser.readLocation(OpenAPIParser.java:16)
+	at com.github.viclovsky.swagger.coverage.core.generator.Generator.run(Generator.java:41)
+	at com.github.viclovsky.swagger.coverage.CommandLine.run(CommandLine.java:77)
+	at java.base/java.util.Optional.orElseGet(Optional.java:369)
+	at com.github.viclovsky.swagger.coverage.CommandLine.main(CommandLine.java:34)
+14:59:36 INFO  c.g.v.s.c.c.g.Generator - unable to read location `swagger-doc-teamcity.json`

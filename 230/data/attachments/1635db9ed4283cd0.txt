@@ -1,0 +1,25 @@
+2024-04-08 12:24:40 INFO [32mpytest tests/frontend/test_e2e_project.py::TestProjectE2E::test_e2e_delete_project[chromium] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:76a4aa52-412b-4960-b710-6b44f92a38dd'
+-H 'Cookie:TCSESSIONID=E5C007B93624465CB4B69CF730770D40'
+-H 'Content-Length:111'
+-H 'Authorization:Basic OjU4MzQxODMzNjM1MDM4OTcxMDA=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "find", "id": "tkIAMg2gPEe", "copyAllAssociatedSettings": true}' 
+ 
+
+2024-04-08 12:24:54 INFO [32mpytest tests/frontend/test_e2e_project.py::TestProjectE2E::test_e2e_delete_project[chromium] [0m
+curl - X GET 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:76a4aa52-412b-4960-b710-6b44f92a38dd'
+-H 'Cookie:TCSESSIONID=E5C007B93624465CB4B69CF730770D40'
+-H 'Authorization:Basic OjU4MzQxODMzNjM1MDM4OTcxMDA=' 
+-d ''

@@ -1,0 +1,57 @@
+2024-04-08 11:36:05 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_positive_creating_project_by_roles[By system admin] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjQzNDUyMTcyOTA5NDU3MDc0MzU=' 
+-d ''
+2024-04-08 11:36:05 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_positive_creating_project_by_roles[By system admin] [0m
+curl - X POST 'http://localhost:8111/app/rest/users' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:RecentLogin=; TCSESSIONID=E3E19F469CCA2ECFA78BA6FC341013CB'
+-H 'Content-Length:144'
+-H 'Authorization:Basic OjQzNDUyMTcyOTA5NDU3MDc0MzU=' 
+-d '{"username": "best", "password": "xce5i9eysYb", "email": "phillip62@example.org", "roles": {"role": [{"roleId": "SYSTEM_ADMIN", "scope": "g"}]}}' 
+ 
+
+2024-04-08 11:36:05 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value 08bcee6a-0446-4696-b4fc-c02676de76a6
+[0m
+2024-04-08 11:36:06 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_positive_creating_project_by_roles[By system admin] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:TCSESSIONID=E3E19F469CCA2ECFA78BA6FC341013CB'
+-H 'Authorization:Basic OjQzNDUyMTcyOTA5NDU3MDc0MzU=' 
+-d '' 
+ 
+
+2024-04-08 11:36:06 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_positive_creating_project_by_roles[By system admin] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:N3Iiqc9onwG' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:TCSESSIONID=E3E19F469CCA2ECFA78BA6FC341013CB'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjQzNDUyMTcyOTA5NDU3MDc0MzU=' 
+-d '' 
+ 
+
+2024-04-08 11:36:06 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value 08bcee6a-0446-4696-b4fc-c02676de76a6
+[0m

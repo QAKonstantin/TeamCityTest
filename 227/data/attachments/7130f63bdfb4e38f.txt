@@ -1,0 +1,88 @@
+2024-04-08 11:36:04 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] (setup)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:*/*'
+-H 'Connection:keep-alive'
+-H 'Authorization:Basic OjQzNDUyMTcyOTA5NDU3MDc0MzU=' 
+-d ''
+2024-04-08 11:36:04 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] [0m
+curl - X POST 'http://localhost:8111/app/rest/users' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:RecentLogin=; TCSESSIONID=33C0DA7234A93BC67D7FD0A5FE56C7F9'
+-H 'Content-Length:148'
+-H 'Authorization:Basic OjQzNDUyMTcyOTA5NDU3MDc0MzU=' 
+-d '{"username": "improve", "password": "GaWxqwRrQyO", "email": "juliegomez@example.net", "roles": {"role": [{"roleId": "SYSTEM_ADMIN", "scope": "g"}]}}' 
+ 
+
+2024-04-08 11:36:04 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value 73ae0a4c-2818-49a4-9c65-04beddaa8dc1
+[0m
+2024-04-08 11:36:04 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:TCSESSIONID=33C0DA7234A93BC67D7FD0A5FE56C7F9'
+-H 'Authorization:Basic OjQzNDUyMTcyOTA5NDU3MDc0MzU=' 
+-d '' 
+ 
+
+2024-04-08 11:36:04 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/buildTypes/id:FNur9SR5Zoh' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:TCSESSIONID=33C0DA7234A93BC67D7FD0A5FE56C7F9'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjQzNDUyMTcyOTA5NDU3MDc0MzU=' 
+-d '' 
+ 
+
+2024-04-08 11:36:04 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value 73ae0a4c-2818-49a4-9c65-04beddaa8dc1
+[0m
+2024-04-08 11:36:04 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] (teardown)[0m
+curl - X GET 'http://localhost:8111/authenticationTest.html' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:TCSESSIONID=33C0DA7234A93BC67D7FD0A5FE56C7F9'
+-H 'Authorization:Basic OjQzNDUyMTcyOTA5NDU3MDc0MzU=' 
+-d '' 
+ 
+
+2024-04-08 11:36:04 INFO [32mpytest tests/backend/test_run_build.py::TestRunBuild::test_run_build_by_all_roles[By system admin] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:RUyEWfNPoC2' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:'
+-H 'Cookie:TCSESSIONID=33C0DA7234A93BC67D7FD0A5FE56C7F9'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjQzNDUyMTcyOTA5NDU3MDc0MzU=' 
+-d '' 
+ 
+
+2024-04-08 11:36:04 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value 73ae0a4c-2818-49a4-9c65-04beddaa8dc1
+[0m

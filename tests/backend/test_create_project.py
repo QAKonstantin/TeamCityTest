@@ -66,6 +66,7 @@ class TestProjectCreate:
     @allure.title('Проверка отсутствия прав на создание проекта')
     @allure.description('Проверяется невозможность создания проекта под определенными ролями')
     @pytest.mark.projects
+    @pytest.mark.api
     def test_negative_creating_project_by_roles(self, user_create, role):
         with allure.step('Подготовка данных для создания проекта'):
             project_data_1 = ProjectData.create_project_data()
@@ -89,6 +90,7 @@ class TestProjectCreate:
     @allure.description(
         'Проверяется валидация DuplicateProjectNameException при повторном создании проекта с существующими данными')
     @pytest.mark.projects
+    @pytest.mark.api
     def test_create_existing_project(self, project_data, super_admin):
         with allure.step('Подготовка данных для создания проекта'):
             project_data_1 = project_data()
@@ -124,6 +126,7 @@ class TestProjectCreate:
     @allure.description(
         'Проверяется валидация с пустыми атрибутами проекта')
     @pytest.mark.projects
+    @pytest.mark.api
     def test_create_project_with_empty_attributes(self, super_admin, attribute, status_code, text_error, value):
         with allure.step('Подготовка данных для создания проекта'):
             project_data_1 = dict(ProjectData.create_project_data())

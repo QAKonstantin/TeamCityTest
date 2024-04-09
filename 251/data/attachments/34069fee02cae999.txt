@@ -1,0 +1,12 @@
+2024-04-09 12:08:17 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_create_project_with_empty_attributes[name] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:75535b76-a96c-4674-9c70-d400735178f2'
+-H 'Cookie:RecentLogin=; TCSESSIONID=7A622B91CEBEAF71FD002AD8366247E8'
+-H 'Content-Length:107'
+-H 'Authorization:Basic OjQyODY4OTk3NTMyODQ5Mzk4NDM=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "", "id": "wI5RlCH7AYL", "copyAllAssociatedSettings": true}'

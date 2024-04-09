@@ -1,1 +1,0 @@
-{"total":2,"items":[{"uid":"9d98953f3140aae1aac01757f0d04941","name":"API тесты","statistic":{"failed":0,"broken":0,"skipped":0,"passed":13,"unknown":0,"total":13}},{"uid":"01a6b7c48216b716aa242182b35437cb","name":"Сетап для первого запуска TeamCity","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}

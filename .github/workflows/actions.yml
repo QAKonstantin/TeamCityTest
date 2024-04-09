@@ -141,6 +141,10 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
+      - name: Check structure
+        run: |
+          ls
+
       - name: Upload Swagger report
         uses: actions/upload-artifact@v4
         with:

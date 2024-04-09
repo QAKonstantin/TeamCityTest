@@ -127,7 +127,7 @@ jobs:
 
       - name: Move Swagger Report in GitHub Pages
         run: |
-          mkdir swagger-report
+          mkdir -p gh-pages/swagger-report
           cp swagger-coverage-report-teamcity.html gh-pages/swagger-report/index.html
         if: always()
 

@@ -24,4 +24,4 @@
 
 Для просмотра отчёта в CI необходимо перейти в workflow "pages build and deployment"
 в job под названием "Deploy", где отображается ссылка на Allure отчёт по последнему прогону  
-В артефактах workflow "pages build and deployment" содержится отчёт по swagger-coverage
+В артефактах workflow "hometask:4" содержится отчёт по swagger-coverage

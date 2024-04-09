@@ -1,0 +1,25 @@
+2024-04-09 11:11:04 INFO [32mpytest tests/frontend/test_e2e_project.py::TestProjectE2E::test_e2e_delete_project[firefox] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:56667abe-341f-4548-a697-c7ced572714a'
+-H 'Cookie:TCSESSIONID=C13E9D3C7E52D680E4B09BA38D227DB9'
+-H 'Content-Length:113'
+-H 'Authorization:Basic OjY3MDM1NjQ4NTc2NzM1Njg3Nzc=' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "relate", "id": "tPv4w7jwxZo", "copyAllAssociatedSettings": true}' 
+ 
+
+2024-04-09 11:11:14 INFO [32mpytest tests/frontend/test_e2e_project.py::TestProjectE2E::test_e2e_delete_project[firefox] [0m
+curl - X GET 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:56667abe-341f-4548-a697-c7ced572714a'
+-H 'Cookie:TCSESSIONID=C13E9D3C7E52D680E4B09BA38D227DB9'
+-H 'Authorization:Basic OjY3MDM1NjQ4NTc2NzM1Njg3Nzc=' 
+-d ''

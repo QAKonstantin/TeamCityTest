@@ -125,6 +125,17 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
+      - name: Move Swagger Report in GitHub Pages
+        run: |
+          mkdir swagger-report
+          cp swagger-coverage-report-teamcity.html gh-pages/swagger-report/index.html
+        if: always()
+
+      - name: Check structure
+        run: |
+          ls
+        if: always()
+
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@v1.9
         if: always()
@@ -132,14 +143,6 @@ jobs:
           allure_results: allure-results
           allure_history: allure-history
           keep_reports: 14
-
-      - name: Generate Swagger UI
-        uses: Legion2/swagger-ui-action@v1
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          output: swagger-ui
-          spec-file: swagger-coverage-config-teamcity.json
 
       - name: Deploy Allure report to Github Pages
         if: always()

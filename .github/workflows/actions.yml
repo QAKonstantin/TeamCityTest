@@ -115,7 +115,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --numprocesses auto -m api -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
+          pytest --numprocesses auto -v --alluredir=${{ github.workspace }}/allure-results --ignore=tests/frontend/test_set_up.py
 
       - name: Get Allure history
         uses: actions/checkout@v4
@@ -124,17 +124,6 @@ jobs:
         with:
           ref: gh-pages
           path: gh-pages
-
-      - name: Move Swagger Report in GitHub Pages
-        run: |
-          mkdir -p gh-pages/swagger-report
-          cp swagger-coverage-report-teamcity.html gh-pages/swagger-report/index.html
-        if: always()
-
-      - name: Check structure
-        run: |
-          ls
-        if: always()
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@v1.9

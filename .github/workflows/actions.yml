@@ -146,6 +146,7 @@ jobs:
           ls
 
       - name: Upload Swagger report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: swagger-report

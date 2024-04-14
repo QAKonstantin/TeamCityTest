@@ -1,0 +1,78 @@
+2024-04-14 17:50:43 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_positive_creating_project_by_roles[By agent manager] [0m
+curl - X POST 'http://localhost:8111/app/rest/users' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:d9c63ade-0f29-4ae4-96c3-30302546e1fe'
+-H 'Cookie:RecentLogin=; TCSESSIONID=FCBC00C35B3EA101F679EB806D54F7D9'
+-H 'Content-Length:157'
+-H 'Authorization:Basic OjM3NzIxNjMyMzM2NTI0NDEzOTE=' 
+-d '{"username": "husband", "password": "n4EafYJY0ca", "email": "herrerachristopher@example.net", "roles": {"role": [{"roleId": "AGENT_MANAGER", "scope": "g"}]}}' 
+ 
+
+2024-04-14 17:50:43 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_positive_creating_project_by_roles[By agent manager] [0m
+curl - X POST 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:1f4c28c0-7d49-4765-b8eb-0969f5ce9d0e'
+-H 'Cookie:RecentLogin=; TCSESSIONID=7904E88F7F03DA87DB5A44AF618DD386'
+-H 'Content-Length:112'
+-H 'Authorization:Basic aHVzYmFuZDpuNEVhZllKWTBjYQ==' 
+-d '{"parentProject": {"locator": "_Root"}, "name": "worry", "id": "aQEYKfP1KZ3", "copyAllAssociatedSettings": true}' 
+ 
+
+2024-04-14 17:50:43 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_positive_creating_project_by_roles[By agent manager] [0m
+curl - X GET 'http://localhost:8111/app/rest/projects/aQEYKfP1KZ3' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:1f4c28c0-7d49-4765-b8eb-0969f5ce9d0e'
+-H 'Cookie:TCSESSIONID=7904E88F7F03DA87DB5A44AF618DD386'
+-H 'Authorization:Basic aHVzYmFuZDpuNEVhZllKWTBjYQ==' 
+-d ''
+2024-04-14 17:50:44 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_positive_creating_project_by_roles[By agent manager] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/users/husband' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:d9c63ade-0f29-4ae4-96c3-30302546e1fe'
+-H 'Cookie:TCSESSIONID=FCBC00C35B3EA101F679EB806D54F7D9'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjM3NzIxNjMyMzM2NTI0NDEzOTE=' 
+-d '' 
+ 
+
+2024-04-14 17:50:44 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_positive_creating_project_by_roles[By agent manager] (teardown)[0m
+curl - X DELETE 'http://localhost:8111/app/rest/projects/id:aQEYKfP1KZ3' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:d9c63ade-0f29-4ae4-96c3-30302546e1fe'
+-H 'Cookie:TCSESSIONID=FCBC00C35B3EA101F679EB806D54F7D9'
+-H 'Content-Length:0'
+-H 'Authorization:Basic OjM3NzIxNjMyMzM2NTI0NDEzOTE=' 
+-d '' 
+ 
+
+2024-04-14 17:50:44 INFO [32mpytest tests/backend/test_create_project.py::TestProjectCreate::test_positive_creating_project_by_roles[By agent manager] (teardown)[0m
+curl - X GET 'http://localhost:8111/app/rest/projects' 
+-H 'User-Agent:python-requests/2.31.0'
+-H 'Accept-Encoding:gzip, deflate'
+-H 'Accept:application/json'
+-H 'Connection:keep-alive'
+-H 'Content-Type:application/json'
+-H 'X-TC-CSRF-Token:d9c63ade-0f29-4ae4-96c3-30302546e1fe'
+-H 'Cookie:TCSESSIONID=FCBC00C35B3EA101F679EB806D54F7D9'
+-H 'Authorization:Basic OjM3NzIxNjMyMzM2NTI0NDEzOTE=' 
+-d ''

@@ -1,6 +1,7 @@
 import logging
 import os
 from http import HTTPStatus
+from utils.listener import CoverageListener
 
 from enums.hosts import BASE_URL
 
@@ -25,13 +26,24 @@ class CustomRequester:
         :param need_verify_status: Флаг для проверки статус кода в ответе. По умолчанию = True
         :return: Возвращает объект ответа
         """
-        url = f"{self.base_url}{endpoint}"
-        response = self.session.request(method=method, url=url, json=data)
-        if need_logging:
-            self.log_request_and_response(response, expected_status, need_verify_status)
-        if need_verify_status:
-            if response.status_code != expected_status:
-                raise ValueError(f"Unexpected status code: {response.status_code}, expected: {expected_status}")
+        if endpoint == "/authenticationTest.html?csrf":
+            url = f"{self.base_url}{endpoint}"
+            response = self.session.request(method=method, url=url, json=data)
+        else:
+            kwargs = {"json": data}
+            response = CoverageListener(
+                method=method,
+                base_url=self.base_url,
+                raw_path=endpoint,
+                uri_params={},
+                session=self.session,
+                **kwargs
+            ).response
+            if need_logging:
+                self.log_request_and_response(response, expected_status, need_verify_status)
+            if need_verify_status:
+                if response.status_code != expected_status:
+                    raise ValueError(f"Unexpected status code: {response.status_code}, expected: {expected_status}")
         return response
 
     def _update_session_headers(self, **kwargs):

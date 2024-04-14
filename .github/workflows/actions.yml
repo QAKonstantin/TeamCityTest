@@ -8,7 +8,27 @@ on:
   workflow_dispatch:
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install flake8
+        run: pip install flake8
+      - name: Run flake8
+        run: flake8 . --max-line-length 121
+
   run-tests:
+    needs: lint
+    if: ${{ github.event_name == 'workflow_dispatch' || needs.lint.result == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -113,10 +133,21 @@ jobs:
           allure_history: allure-history
           keep_reports: 5
 
-      - name: Deploy report to Github Pages
+      - name: Deploy Allure report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
+
+      - name: Check structure
+        run: |
+          ls
+
+      - name: Upload Swagger report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: swagger-report
+          path: swagger-coverage-report-teamcity.html

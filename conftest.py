@@ -9,11 +9,12 @@ from data.project_data import ProjectData
 from data.user_data import UserData
 from entities.user import User, Role
 from enums.browser import BROWSERS
+from enums.hosts import BASE_URL
 from pages.auth_page import AuthLoginForm, AuthLoginBySuperAdmin
 from resources.user_creds import SuperAdminCreds
 from utils.browser_setup import BrowserSetup
 from utils.data_generator import DataGenerator
-from components.header import Header
+from swagger_coverage_py.reporter import CoverageReporter
 
 
 @pytest.fixture(params=BROWSERS)
@@ -28,6 +29,16 @@ def browser_for_setup():
     playwright, browser, context, page = BrowserSetup.setup()
     yield page
     BrowserSetup.teardown(context, browser, playwright)
+
+
+@pytest.fixture(scope="session", autouse=True)
+def setup_swagger_coverage(request):
+    reporter = CoverageReporter(api_name="teamcity", host=BASE_URL)
+    reporter.cleanup_input_files()
+    if request.config.args[0] != 'tests/frontend/test_set_up.py':
+        reporter.setup("/app/rest/swagger.json")
+    yield
+    reporter.generate_report()
 
 
 @pytest.fixture
